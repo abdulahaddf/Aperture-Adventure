@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Nav from "../shared/navbar/Nav";
 import Footer from "../shared/footer/Footer";
 
+
 const Main = () => {
     return (
         <div>

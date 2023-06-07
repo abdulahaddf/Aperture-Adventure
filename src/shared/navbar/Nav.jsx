@@ -122,7 +122,7 @@ const Nav = () => {
             <div>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-emerald-900" : "text-emerald-600 link link-hover"
+                  isActive ? "text-black" : "text-white link link-hover"
                 }
                 to="/"
               >
@@ -132,7 +132,7 @@ const Nav = () => {
             <div>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-emerald-900" : "text-emerald-600 link link-hover"
+                  isActive ? "text-black" : "text-white link link-hover"
                 }
                 to="/instructors"
               >
@@ -143,7 +143,7 @@ const Nav = () => {
             <div>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-emerald-900" : "text-emerald-600 link link-hover"
+                  isActive ? "text-black" : "text-white link link-hover"
                 }
                 to="/classes"
               >
@@ -155,7 +155,7 @@ const Nav = () => {
               {user ? (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-emerald-900" : "text-emerald-600 link link-hover"
+                    isActive ? "text-black" : "text-white link link-hover"
                   }
                   to="/dashbord"
                 >
@@ -187,7 +187,7 @@ const Nav = () => {
                 </button>
               </div>
             ) : (
-              <Link to="/login" className="btn btn-outline btn-sm mr-5">
+              <Link to="/login" className="btn-custom-sm  mr-5">
                 Login
               </Link>
             )}
