@@ -3,7 +3,7 @@ import moment from "moment";
 const time = moment().format(" YYYY");
 const Footer = () => {
   return (
-    <footer className="flex justify-evenly mt-6 md:mt-16 p-5 md:p-10 text-white bg-gradient-to-r from-[#1F2937] from-50% to-[#111827] to-50%">
+    <footer className="flex justify-evenly mt-6 md:mt-16 p-5 md:p-10 text-white bg-gradient-to-r from-emerald-900 from-50% to-emerald-700 to-50%">
       <div className="space-y-4 ">
         <h1 className="text-3xl">Contact US</h1>
         <p>
