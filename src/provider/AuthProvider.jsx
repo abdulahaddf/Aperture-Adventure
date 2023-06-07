@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 
 import { app } from "../firebase/firebase.config";
-import { toast } from "react-toastify";
+
 
 
 
@@ -27,15 +27,9 @@ const AuthProvider = ({ children }) => {
   
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      toast('User created successfully');
-     
-    })
-    .catch((error) => {
-      console.log(error);
-      toast('Error creating user: ' + error.message);
-    })
   };
+
+
 // sign in with email and password
   const signIn = (email, password) => {
     setLoading(true);

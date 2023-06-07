@@ -1,17 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
-import { Link, useLocation, useNavigation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../provider/AuthProvider";
 import logo from "../../../assets/lgo.svg"
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, signInGoogle, setLoading } = useContext(AuthContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const navigate = useNavigation();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+
+  const navigate = useNavigate();
+  //  const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
 
   const handleForm = (data) => {
     const { email, password } = data;
@@ -20,8 +23,14 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        toast("Successfully signed in");
-        navigate(from, { replace: true });
+       navigate("/")
+       Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Successfully Signed In.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -42,8 +51,14 @@ const Login = () => {
     signInGoogle()
       .then((result) => {
         console.log(result.user);
-        toast.success("Successfully signed in");
-        navigate(from, { replace: true });
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Successfully Signed In.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/")
       })
       .catch((err) => {
         setLoading(false);
@@ -51,10 +66,13 @@ const Login = () => {
       });
   };
 
- 
-
   return (
-    <div className=" md:flex justify-center my-10 ">
+    
+   
+      <div className=" md:flex justify-center my-10 ">
+        <Helmet>
+                <title>Aperture Adventure | Login</title>
+            </Helmet>
       <div className="w-full p-6 h-3/4 bg-white rounded-md shadow-2xl lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-emerald-700 uppercase">
           Sign in
@@ -127,6 +145,7 @@ const Login = () => {
         <img src={logo} alt="" />
       </div>
     </div>
+   
   );
 };
 

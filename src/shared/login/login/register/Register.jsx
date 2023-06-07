@@ -1,30 +1,57 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-// import { AuthContext } from "../../../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { AuthContext } from "../../../../provider/AuthProvider";
-// import logo from "../../../../assets/login.svg"
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { createUser, signInGoogle, profileUpdate,setLoading } =
-    useContext(AuthContext);
+  const { createUser, signInGoogle, profileUpdate, setLoading } = useContext(AuthContext);
 
-  const { register, handleSubmit, formState: { errors },watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    watch,
+  } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location?.state?.from?.pathname || "/";
   const passwordValue = watch("password", "");
+
   const handleReg = (data) => {
     const { name, email, password, url } = data;
-
+   
     createUser(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        profileUpdate({ displayName: name, photoURL: url });
-        console.log(loggedUser);
-        toast('User Created Successfully')
-        navigate(from, { replace: true });
+      .then(() => {
+        profileUpdate({ displayName: name, photoURL: url })
+          .then(() => {
+            const saveUser = { name: data.name, email: data.email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User created successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  navigate(from, { replace: true });
+                }
+              });
+          })
+          
       })
       .catch((err) => {
         console.log(err);
@@ -34,19 +61,44 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     signInGoogle()
       .then((result) => {
-        console.log(result.user);
-        toast("successfully signed in");
-        navigate(from, { replace: true });
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const saveUser = {
+          name: loggedInUser.displayName,
+          email: loggedInUser.email,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            console.log(result.user);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(from, { replace: true });
+          });
       })
+
       .catch((err) => {
         setLoading(false);
         console.log(err.message);
       });
   };
 
-
   return (
     <div>
+              <Helmet>
+                <title>Aperture Adventure | Register</title>
+            </Helmet>
       <div className="relative flex flex-col justify-center my-4 overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
           <h1 className="text-3xl font-semibold text-center text-emerald-700 uppercase">
@@ -67,9 +119,7 @@ const Register = () => {
                 className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
-            {errors.name && (
-              <span className="error">Name is required</span>
-            )}
+            {errors.name && <span className="error">Name is required</span>}
             <div className="mb-2">
               <label
                 htmlFor="email"
@@ -84,9 +134,7 @@ const Register = () => {
                 className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
-            {errors.email && (
-              <span className="error">Email is required</span>
-            )}
+            {errors.email && <span className="error">Email is required</span>}
             <div className="mb-2">
               <label
                 htmlFor="password"
@@ -104,8 +152,10 @@ const Register = () => {
                     message: "Password must be at least 6 characters long",
                   },
                   pattern: {
-                    value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
-                    message: "Password must contain an uppercase letter, a lowercase letter, a number, and a special character",
+                    value:
+                      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
+                    message:
+                      "Password must contain an uppercase letter, a lowercase letter, a number, and a special character",
                   },
                 })}
                 className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"

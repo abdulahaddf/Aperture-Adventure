@@ -113,7 +113,7 @@ const Nav = () => {
             <Link
               to="/"
             >
-             <img className="w-48 ml-5" src="https://i.ibb.co/yntpQ5r/Aperture-Laboratories-Logo-svg.png" alt="" />
+             <img className="w-48 ml-5" src="https://i.ibb.co/2qpZ7yZ/aplogo.png" alt="" />
             </Link>
           </div>
         </div>
