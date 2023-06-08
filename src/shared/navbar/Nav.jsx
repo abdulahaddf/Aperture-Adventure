@@ -1,26 +1,24 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link, NavLink } from 'react-router-dom';
-
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const handleLogOut = () => {
-      logOut()
-        .then()
-        .catch((error) => console.log(error));
-    };
-   
-  
-    return (
-      <div className="  items-center text-center ">
-      <div className="navbar bg-gradient-to-r from-emerald-900">
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    <div className="  items-center text-center ">
+      <div className="navbar bg-gradient-to-r from-cyan-900">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -41,8 +39,8 @@ const Nav = () => {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "text-emerald-900 "
-                      : "text-emerald-600 link link-hover"
+                      ? "text-cyan-900 "
+                      : "text-cyan-600 link link-hover"
                   }
                   to="/"
                 >
@@ -52,7 +50,7 @@ const Nav = () => {
               <div>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-emerald-900" : "text-emerald-600 link link-hover"
+                    isActive ? "text-cyan-900" : "text-cyan-600 link link-hover"
                   }
                   to="/blog"
                 >
@@ -63,7 +61,7 @@ const Nav = () => {
               <div>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-emerald-900" : "text-emerald-600 link link-hover"
+                    isActive ? "text-cyan-900" : "text-cyan-600 link link-hover"
                   }
                   to="/all"
                 >
@@ -76,8 +74,8 @@ const Nav = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? "text-emerald-900"
-                        : "text-emerald-600 link link-hover"
+                        ? "text-cyan-900"
+                        : "text-cyan-600 link link-hover"
                     }
                     to="/my"
                   >
@@ -93,8 +91,8 @@ const Nav = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? "text-emerald-900"
-                        : "text-emerald-600 link link-hover"
+                        ? "text-cyan-900"
+                        : "text-cyan-600 link link-hover"
                     }
                     to="/add"
                   >
@@ -107,13 +105,14 @@ const Nav = () => {
               </div>
             </ul>
           </div>
-          
-          <div >
-          
-            <Link
-              to="/"
-            >
-             <img className="w-48 ml-5" src="https://i.ibb.co/2qpZ7yZ/aplogo.png" alt="" />
+
+          <div>
+            <Link to="/">
+              <img
+                className="w-48 ml-5"
+                src="https://i.ibb.co/5KY6ctJ/mylogo.png"
+                alt=""
+              />
             </Link>
           </div>
         </div>
@@ -157,7 +156,7 @@ const Nav = () => {
                   className={({ isActive }) =>
                     isActive ? "text-black" : "text-white link link-hover"
                   }
-                  to="/dashbord"
+                  to="/dashboard/users"
                 >
                   {" "}
                   Dashboard
@@ -166,7 +165,6 @@ const Nav = () => {
                 ""
               )}
             </div>
-           
           </ul>
         </div>
         <div className="navbar-end">
@@ -179,10 +177,7 @@ const Nav = () => {
                 >
                   <img className="rounded-full" src={user?.photoURL} />
                 </div>
-                <button
-                  onClick={handleLogOut}
-                  className="btn btn-outline btn-sm mr-5"
-                >
+                <button onClick={handleLogOut} className="btn-custom-sm mr-5">
                   Log Out
                 </button>
               </div>
@@ -195,9 +190,7 @@ const Nav = () => {
         </div>
       </div>
     </div>
-      
-    );
-  };
-  
+  );
+};
 
 export default Nav;

@@ -6,7 +6,8 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { createUser, signInGoogle, profileUpdate, setLoading } = useContext(AuthContext);
+  const { createUser, signInGoogle, profileUpdate, setLoading } =
+    useContext(AuthContext);
 
   const {
     register,
@@ -22,36 +23,34 @@ const Register = () => {
 
   const handleReg = (data) => {
     const { name, email, password, url } = data;
-   
+
     createUser(email, password)
       .then(() => {
-        profileUpdate({ displayName: name, photoURL: url })
-          .then(() => {
-            const saveUser = { name: data.name, email: data.email };
-            fetch("http://localhost:5000/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(saveUser),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                console.log(data);
-                if (data.insertedId) {
-                  reset();
-                  Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "User created successfully.",
-                    showConfirmButton: false,
-                    timer: 1500,
-                  });
-                  navigate(from, { replace: true });
-                }
-              });
+        profileUpdate({ displayName: name, photoURL: url }).then(() => {
+          const saveUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
           })
-          
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate(from, { replace: true });
+              }
+            });
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -96,12 +95,12 @@ const Register = () => {
 
   return (
     <div>
-              <Helmet>
-                <title>Aperture Adventure | Register</title>
-            </Helmet>
+      <Helmet>
+        <title>Aperture Adventure | Register</title>
+      </Helmet>
       <div className="relative flex flex-col justify-center my-4 overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
-          <h1 className="text-3xl font-semibold text-center text-emerald-700 uppercase">
+          <h1 className="text-3xl font-semibold text-center text-cyan-700 uppercase">
             Sign Up
           </h1>
           <form onSubmit={handleSubmit(handleReg)} className="mt-6">
@@ -116,7 +115,7 @@ const Register = () => {
                 type="text"
                 id="name"
                 {...register("name", { required: true })}
-                className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
             {errors.name && <span className="error">Name is required</span>}
@@ -131,7 +130,7 @@ const Register = () => {
                 type="email"
                 id="email"
                 {...register("email", { required: true })}
-                className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
             {errors.email && <span className="error">Email is required</span>}
@@ -158,7 +157,7 @@ const Register = () => {
                       "Password must contain an uppercase letter, a lowercase letter, a number, and a special character",
                   },
                 })}
-                className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
             {errors.password && (
@@ -178,7 +177,7 @@ const Register = () => {
                   validate: (value) =>
                     value === passwordValue || "Passwords do not match",
                 })}
-                className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
             {errors.confirmPassword && (
@@ -195,16 +194,16 @@ const Register = () => {
                 type="text"
                 id="url"
                 {...register("url")}
-                className="block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
-            <a href="#" className="text-xs text-emerald-600 hover:underline">
+            <a href="#" className="text-xs text-cyan-600 hover:underline">
               Forget Password?
             </a>
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-emerald-700 rounded-md hover:bg-emerald-600 focus:outline-none focus:bg-emerald-600"
+                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-cyan-700 rounded-md hover:bg-cyan-600 focus:outline-none focus:bg-cyan-600"
               >
                 Register
               </button>
@@ -234,7 +233,7 @@ const Register = () => {
             Already have an account?{" "}
             <Link
               to="/login"
-              className="font-medium text-lg text-emerald-600 hover:underline"
+              className="font-medium text-lg text-cyan-600 hover:underline"
             >
               Sign In
             </Link>

@@ -4,13 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../provider/AuthProvider";
-import logo from "../../../assets/lgo.svg"
+import logo from "../../../assets/lgo.svg";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, signInGoogle, setLoading } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const navigate = useNavigate();
   //  const location = useLocation();
@@ -23,14 +27,14 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-       navigate("/")
-       Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Successfully Signed In.",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+        navigate("/");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Successfully Signed In.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -58,7 +62,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/")
+        navigate("/");
       })
       .catch((err) => {
         setLoading(false);
@@ -67,46 +71,57 @@ const Login = () => {
   };
 
   return (
-    
-   
-      <div className=" md:flex justify-center my-10 ">
-        <Helmet>
-                <title>Aperture Adventure | Login</title>
-            </Helmet>
+    <div className=" md:flex justify-center my-10 ">
+      <Helmet>
+        <title>Aperture Adventure | Login</title>
+      </Helmet>
       <div className="w-full p-6 h-3/4 bg-white rounded-md shadow-2xl lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-emerald-700 uppercase">
+        <h1 className="text-3xl font-semibold text-center text-cyan-700 uppercase">
           Sign in
         </h1>
         <form onSubmit={handleSubmit(handleForm)} className="mt-6">
           <div className="mb-2">
-            <label htmlFor="email" className="block text-sm font-semibold text-gray-800" required>
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-gray-800"
+              required
+            >
               Email
             </label>
             <input
               type="email"
               id="email"
               {...register("email", { required: true })}
-              className={`block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40 ${errors.email ? 'border-red-500' : ''}`}
+              className={`block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40 ${
+                errors.email ? "border-red-500" : ""
+              }`}
             />
             {errors.email && <span className="error">Email is required</span>}
           </div>
           <div className="mb-2">
-            <label htmlFor="password" className="block text-sm font-semibold text-gray-800">
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-800"
+            >
               Password
             </label>
             <input
               type="password"
               id="password"
               {...register("password", { required: true })}
-              className={`block w-full px-4 py-2 mt-2 text-emerald-700 bg-white border rounded-md focus:border-emerald-400 focus:ring-emerald-300 focus:outline-none focus:ring focus:ring-opacity-40 ${errors.password ? 'border-red-500' : ''}`}
+              className={`block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40 ${
+                errors.password ? "border-red-500" : ""
+              }`}
             />
-            {errors.password && <span className="error">Password is required</span>}
+            {errors.password && (
+              <span className="error">Password is required</span>
+            )}
           </div>
-          <a href="#" className="text-xs text-emerald-600 hover:underline">
+          <a href="#" className="text-xs text-cyan-600 hover:underline">
             Forget Password?
           </a>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-emerald-700 rounded-md hover:bg-emerald-600 focus:outline-none focus:bg-emerald-600">
+            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-cyan-700 rounded-md hover:bg-cyan-600 focus:outline-none focus:bg-cyan-600">
               Login
             </button>
           </div>
@@ -135,7 +150,7 @@ const Login = () => {
           Don't have an account?{" "}
           <Link
             to="/register"
-            className="font-medium text-lg text-emerald-600 hover:underline"
+            className="font-medium text-lg text-cyan-600 hover:underline"
           >
             Sign up
           </Link>
@@ -145,7 +160,6 @@ const Login = () => {
         <img src={logo} alt="" />
       </div>
     </div>
-   
   );
 };
 
