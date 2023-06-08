@@ -17,8 +17,8 @@ const Dashboard = () => {
   if(loading){
     return <Loader></Loader>
   }
-  const isAdmin =true;
-  const isInstructor = false;
+  const isAdmin =false;
+  const isInstructor = true;
   const cart = [];
   return (
     <div>

@@ -1,15 +1,54 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../provider/AuthProvider";
+import useAxiosSecure from "../../../hooks/UseAxiousSecure";
+import Swal from "sweetalert2";
+
+
+const img_hosting_token = import.meta.env.VITE_IMGBB_KEY;
 
 const AddClass = () => {
+    const [axiosSecure] = useAxiosSecure();
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const {user} = useContext(AuthContext)
    
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
 
-  const handleAddClass = (data) => {
-    console.log(data);
-  };
+  const handleAddClass = data => {
+        
+    const formData = new FormData();
+    formData.append('image', data.image[0])
+
+    fetch(img_hosting_url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(imgResponse => {
+        if(imgResponse.success){
+            const imgURL = imgResponse.data.display_url;
+            const {className, description,category,price,availableSeat,instructorEmail,instructorName } = data;
+            const newItem = {className, price: parseFloat(price), category, description, image : imgURL, availableSeat, instructorName, instructorEmail}
+            console.log(newItem)
+            axiosSecure.post('/class', newItem)
+            .then(data => {
+                console.log('after posting a new class', data.data)
+                if(data.data.insertedId){
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class added successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+        }
+    })
+    .catch(err => console.log(err))
+
+};
 
   return (
     <>
