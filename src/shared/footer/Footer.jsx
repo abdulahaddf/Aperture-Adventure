@@ -4,6 +4,7 @@ const time = moment().format(" YYYY");
 const Footer = () => {
   return (
     <footer className="flex justify-evenly mt-6 md:mt-16 p-5 md:p-10 text-white bg-gradient-to-r from-cyan-900 from-50% to-cyan-700 to-50%">
+      {/* TODO: add logo */}
       <div className="space-y-4 ">
         <h1 className="text-3xl">Contact US</h1>
         <p>

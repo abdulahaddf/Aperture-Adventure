@@ -11,7 +11,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="  items-center text-center ">
+    <div className="flex items-center sticky top-0 z-10 w-full text-center ">
       <div className="navbar bg-gradient-to-r from-cyan-900">
         <div className="navbar-start">
           <div className="dropdown">
@@ -144,7 +144,7 @@ const Nav = () => {
                 className={({ isActive }) =>
                   isActive ? "text-black" : "text-white link link-hover"
                 }
-                to="/classes"
+                to="/allClasses"
               >
                 {" "}
                 Classes
