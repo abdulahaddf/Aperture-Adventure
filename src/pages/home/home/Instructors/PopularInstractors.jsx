@@ -19,7 +19,7 @@ const PopularInstractors = () => {
               individuals or groups.
             </p>
             <p>Instractor : David Jonson</p>
-            <p>Total Students : 1296</p>
+            <p>Total Students : 12</p>
 
             <div className="card-actions justify-end">
               <button className="btn-custom">Book Now!</button>

@@ -14,7 +14,7 @@ const Nav = () => {
     <div className="flex items-center sticky top-0 z-10 w-full text-center ">
       <div className="navbar bg-gradient-to-r from-cyan-900">
         <div className="navbar-start">
-          <div className="dropdown md:hidden">
+          <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-sm btn-circle">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
       </label>
