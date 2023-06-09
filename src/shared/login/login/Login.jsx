@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../provider/AuthProvider";
@@ -17,8 +17,9 @@ const Login = () => {
   } = useForm();
 
   const navigate = useNavigate();
-  //  const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  
 
   const handleForm = (data) => {
     const { email, password } = data;
@@ -54,16 +55,36 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signInGoogle()
       .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Successfully Signed In.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/");
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const saveUser = {
+          name: loggedInUser.displayName,
+          email: loggedInUser.email,
+          photoURL : loggedInUser.photoURL
+
+
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            console.log(result.user);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Successfully Signed In",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(from, { replace: true });
+          });
       })
+
       .catch((err) => {
         setLoading(false);
         console.log(err.message);

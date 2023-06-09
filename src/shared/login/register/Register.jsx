@@ -27,6 +27,7 @@ const Register = () => {
     createUser(email, password)
       .then(() => {
         profileUpdate({ displayName: name, photoURL: url }).then(() => {
+
           const saveUser = { name: data.name, email: data.email, photoURL: data.url };
           fetch("http://localhost:5000/users", {
             method: "POST",
@@ -50,6 +51,8 @@ const Register = () => {
                 navigate(from, { replace: true });
               }
             });
+
+
         });
       })
       .catch((err) => {
@@ -65,6 +68,9 @@ const Register = () => {
         const saveUser = {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
+          photoURL : loggedInUser.photoURL
+
+
         };
         fetch("http://localhost:5000/users", {
           method: "POST",

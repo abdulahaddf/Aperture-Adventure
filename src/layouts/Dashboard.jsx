@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useContext } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -11,25 +12,38 @@ import {
 } from "react-icons/fa";
 import { AiOutlineSelect } from "react-icons/ai";
 import Loader from "../shared/components/Loader";
+import useAdmin from "../hooks/UseAdmin";
+import useInstructor from "../hooks/UseInstructor";
 
 const Dashboard = () => {
   const { user, loading } = useContext(AuthContext);
   if(loading){
     return <Loader></Loader>
   }
-  const isAdmin =false;
-  const isInstructor = true;
-  const cart = [];
+
+//   let isAdmin = false;
+// if (user.role === "admin") {
+//   isAdmin = true;
+// }
+// if (user.role === "instructor") {
+//   isInstructor = true;
+// }
+ 
+const [isAdmin] = useAdmin();
+console.log(isAdmin);
+
+const[isInstructor] = useInstructor();
+console.log(isInstructor);
   return (
     <div>
       <div className="drawer lg:drawer-open">
       <div className="">
           <label
             htmlFor="my-drawer-2"
-            className="btn-custom-sm drawer-button lg:hidden"> Open drawer </label>
+            className="btn-custom-sm drawer-button mr-10 lg:hidden"> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg> </label>
           </div>
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col ">
           {/* All routes information will be shown here */}
           <Outlet></Outlet>
          
@@ -180,9 +194,7 @@ const Dashboard = () => {
                       }
                       to="/dashboard/selected"
                     >
-                      <FaRegFlag></FaRegFlag> My Selected Classes{" "}
-                      <span className="badge inline">+{cart?.length || 0}</span>
-                    </NavLink>
+                      <FaRegFlag></FaRegFlag> My Selected Classes </NavLink>
                   </li>
 
                   <li>

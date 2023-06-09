@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/UseAxiousSecure";
 import Swal from "sweetalert2";
+import { Zoom } from "react-awesome-reveal";
 
 
 const img_hosting_token = import.meta.env.VITE_IMGBB_KEY;
@@ -52,7 +53,7 @@ const AddClass = () => {
 
   return (
     <>
-    <h1 className="text-5xl font-bold text-center text-cyan-600 my-10">Add a Photography Class As an Instructor</h1>
+    <Zoom><h1 className="text-5xl font-bold text-center text-cyan-600 my-10">Add a Photography Class As an Instructor</h1></Zoom>
     <div className="container mx-auto p-4 ">
         
         <form onSubmit={handleSubmit(handleAddClass)}>
@@ -79,8 +80,8 @@ const AddClass = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block mb-2 text-xl font-semibold">Image URL:</label>
-            <input type="url" name="image" className="input input-bordered input-info w-full max-w-xs" {...register('image')} />
+            <label className="block mb-2 text-xl font-semibold">Choose an Image</label>
+            <input type="file" name="image" className="file-input file-input-info file-input-bordered w-full max-w-xs" {...register('image')} />
           </div>
   
           <div className="mb-4">
@@ -89,7 +90,7 @@ const AddClass = () => {
           </div>
   
           <div className="mb-4">
-            <label className="block mb-2 text-xl font-semibold">Price:</label>
+            <label className="block mb-2 text-xl font-semibold">Price $:</label>
             <input type="number" name="price" className="input input-bordered input-info w-full max-w-xs" {...register('price')} />
           </div>
   

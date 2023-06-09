@@ -14,96 +14,72 @@ const Nav = () => {
     <div className="flex items-center sticky top-0 z-10 w-full text-center ">
       <div className="navbar bg-gradient-to-r from-cyan-900">
         <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 "
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </label>
+          <div className="dropdown md:hidden">
+          <label tabIndex={0} className="btn btn-sm btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+
+
+
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-cyan-500 rounded-box w-52 "
+              
             >
-              <div>
+
+
+
+<div>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-black" : "text-white link link-hover"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-black" : "text-white link link-hover"
+                }
+                to="/instructors"
+              >
+                {" "}
+                Instructors
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-black" : "text-white link link-hover"
+                }
+                to="/allClasses"
+              >
+                {" "}
+                Classes
+              </NavLink>
+            </div>
+            <div>
+              {user ? (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive
-                      ? "text-cyan-900 "
-                      : "text-cyan-600 link link-hover"
+                    isActive ? "text-black" : "text-white link link-hover"
                   }
-                  to="/"
-                >
-                  Home
-                </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "text-cyan-900" : "text-cyan-600 link link-hover"
-                  }
-                  to="/blog"
+                  to="/dashboard/users"
                 >
                   {" "}
-                  Blog
+                  Dashboard
                 </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "text-cyan-900" : "text-cyan-600 link link-hover"
-                  }
-                  to="/all"
-                >
-                  {" "}
-                  All toys
-                </NavLink>
-              </div>
-              <div>
-                {user ? (
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-cyan-900"
-                        : "text-cyan-600 link link-hover"
-                    }
-                    to="/my"
-                  >
-                    {" "}
-                    My toys
-                  </NavLink>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div>
-                {user ? (
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-cyan-900"
-                        : "text-cyan-600 link link-hover"
-                    }
-                    to="/add"
-                  >
-                    {" "}
-                    Add a toy
-                  </NavLink>
-                ) : (
-                  ""
-                )}
-              </div>
+              ) : (
+                ""
+              )}
+            </div>
             </ul>
+
+
+            
           </div>
 
           <div>
@@ -118,6 +94,7 @@ const Nav = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-bold text-xl space-x-6">
+
             <div>
               <NavLink
                 className={({ isActive }) =>
