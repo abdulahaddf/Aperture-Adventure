@@ -19,7 +19,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  
 
   const handleForm = (data) => {
     const { email, password } = data;
@@ -60,11 +59,9 @@ const Login = () => {
         const saveUser = {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
-          photoURL : loggedInUser.photoURL
-
-
+          photoURL: loggedInUser.photoURL,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://apperture-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -12,7 +12,7 @@ const MyClasses = () => {
     console.log(classes);
     useEffect(() => {
         fetch(
-          `http://localhost:5000/myclass?email=${user.email}`
+          `https://apperture-server.vercel.app/myclass?email=${user.email}`
         )
           .then((response) => response.json())
           .then((data) => setClasses(data));

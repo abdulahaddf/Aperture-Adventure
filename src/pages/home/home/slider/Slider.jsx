@@ -27,7 +27,7 @@ const Slider = () => {
       <img className="object-cover" src="https://i.ibb.co/svy8ZP2/marco-xu-To-UPBCO62-Lw-unsplash.jpg" alt="Slide 5" />
     </div>
   </Carousel>
-  <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-3/4 mx-auto p-2 mr-5 md:mr-48 md:p-5 bg-black bg-opacity-80">
+  <div className="absolute top-36 md:top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-3/4 mx-auto p-2 mr-5 md:mr-48 md:p-5 bg-black bg-opacity-80">
    <Zoom> 
     <div>
       <h1 className="text-2xl md:text-7xl text-center mx-auto font-bold text-white">

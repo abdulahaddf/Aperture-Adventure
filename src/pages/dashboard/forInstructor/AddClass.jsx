@@ -48,6 +48,9 @@ const AddClass = () => {
                 }
             })
         }
+        else{
+          toast('Server Problem! try again later')
+        }
     })
     .catch(err => {
       toast('Something went wrong! ')

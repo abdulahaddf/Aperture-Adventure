@@ -52,7 +52,7 @@ console.log(isInstructor);
                   <img
                     className="w-48 ml-5 "
                     src="https://i.ibb.co/5KY6ctJ/mylogo.png"
-                    alt=""
+                    alt="logo"
                   />
                 </Link>
               </div>

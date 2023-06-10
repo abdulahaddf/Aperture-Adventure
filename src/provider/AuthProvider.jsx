@@ -13,9 +13,6 @@ import {
 import { app } from "../firebase/firebase.config";
 import axios from "axios";
 
-
-
-
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
@@ -23,15 +20,13 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+
   const createUser = (email, password) => {
-  
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
-
-// sign in with email and password
+  // sign in with email and password
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -45,13 +40,12 @@ const AuthProvider = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
-//login with google
+  //login with google
   const googleProvider = new GoogleAuthProvider();
 
   const signInGoogle = () => {
-    
-    setLoading(true)
-    return signInWithPopup(auth, googleProvider)
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const profileUpdate = (profile) => {
@@ -62,23 +56,20 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
 
-
       // passing token
-      if(currentUser){
-        axios.post('http://localhost:5000/jwt', {email: currentUser.email})
-        .then(data =>{
+      if (currentUser) {
+        axios
+          .post("https://apperture-server.vercel.app/jwt", {
+            email: currentUser.email,
+          })
+          .then((data) => {
             // console.log(data.data.token)
-            localStorage.setItem('access-token', data.data.token)
+            localStorage.setItem("access-token", data.data.token);
             setLoading(false);
-        })
-    }
-    else{
-        localStorage.removeItem('access-token')
-    }
-
-
-
-
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
 
     return () => unSubscribe();

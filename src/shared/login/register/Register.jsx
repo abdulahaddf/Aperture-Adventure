@@ -27,9 +27,12 @@ const Register = () => {
     createUser(email, password)
       .then(() => {
         profileUpdate({ displayName: name, photoURL: url }).then(() => {
-
-          const saveUser = { name: data.name, email: data.email, photoURL: data.url };
-          fetch("http://localhost:5000/users", {
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            photoURL: data.url,
+          };
+          fetch("https://apperture-server.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -51,8 +54,6 @@ const Register = () => {
                 navigate(from, { replace: true });
               }
             });
-
-
         });
       })
       .catch((err) => {
@@ -68,11 +69,9 @@ const Register = () => {
         const saveUser = {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
-          photoURL : loggedInUser.photoURL
-
-
+          photoURL: loggedInUser.photoURL,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://apperture-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -111,8 +110,6 @@ const Register = () => {
           </h1>
           <form onSubmit={handleSubmit(handleReg)} className="mt-6">
             <div className="mb-2">
-
-
               <label
                 htmlFor="name"
                 className="block text-sm font-semibold text-gray-800"
@@ -125,8 +122,6 @@ const Register = () => {
                 {...register("name", { required: true })}
                 className="block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
-
-
             </div>
             {errors.name && <span className="error">Name is required</span>}
             <div className="mb-2">
@@ -207,11 +202,11 @@ const Register = () => {
             {errors.confirmPassword && (
               <span className="error">{errors.confirmPassword.message}</span>
             )}
-           
+
             <div>
-            <a href="#" className="text-xs text-cyan-600 hover:underline">
-              Forget Password?
-            </a>
+              <a href="#" className="text-xs text-cyan-600 hover:underline">
+                Forget Password?
+              </a>
             </div>
             <div className="mt-6">
               <button

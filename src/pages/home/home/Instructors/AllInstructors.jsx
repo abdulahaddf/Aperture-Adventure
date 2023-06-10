@@ -11,7 +11,7 @@ const AllInstructors = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Manage Users</title>
+        <title>Aperture Adventure | Instructors</title>
       </Helmet>
       <Zoom>
         <h3 className="text-5xl text-center font-semibold my-10 text-cyan-600">

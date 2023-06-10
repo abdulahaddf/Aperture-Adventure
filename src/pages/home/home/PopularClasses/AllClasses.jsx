@@ -8,56 +8,68 @@ import { AuthContext } from "../../../../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const AllClasses = () => {
-  
-  const {user} = useContext(AuthContext);
-  const [classes,loading,refetch] = UseClasses();
+  const { user } = useContext(AuthContext);
+  const [classes, loading, refetch] = UseClasses();
   const navigate = useNavigate();
 
-  const handleSelect =(cls) =>{
-    const {_id,className, image,  price, description, instructorName, 
-      availableSeat} = cls;
+  const handleSelect = (cls) => {
+    const {
+      _id,
+      className,
+      image,
+      price,
+      description,
+      instructorName,
+      availableSeat,
+    } = cls;
     console.log(cls);
-    if(user && user.email){
-      const selected = {selectId: _id, className, image,  price, description, instructorName,
-        availableSeat, email: user.email}
-      fetch('http://localhost:5000/select', {
-          method: 'POST',
-          headers: {
-              'content-type': 'application/json'
-          },
-          body: JSON.stringify(selected)
+    if (user && user.email) {
+      const selected = {
+        selectId: _id,
+        className,
+        image,
+        price,
+        description,
+        instructorName,
+        availableSeat,
+        email: user.email,
+      };
+      fetch("https://apperture-server.vercel.app/select", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(selected),
       })
-      .then(res => res.json())
-      .then(data => {
-          if(data.insertedId){
-              refetch(); 
-              Swal.fire({
-                  position: 'top-end',
-                  icon: 'success',
-                  title: `${className} class is selected.`,
-                  showConfirmButton: false,
-                  timer: 1500
-                })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            refetch();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${className} class is selected.`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
-      })
-  }
-  else{
+        });
+    } else {
       Swal.fire({
-          title: 'Please login to select the Class',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Login now!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate('/login', {state: {from: location}})
-          }
-        })
-  }
-  }
+        title: "Please login to select the Class",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
 
-  
   return (
     <div>
       <Helmet>
@@ -80,16 +92,39 @@ const AllClasses = () => {
                 />
               </figure>
               <div className="card-body p-2">
-                <h2 className="card-title text-3xl font-semibold text-cyan-600">{cls.className}</h2>
-                <p><span className="font-semibold text-cyan-600">Description:</span>
+                <h2 className="card-title text-3xl font-semibold text-cyan-600">
+                  {cls.className}
+                </h2>
+                <p>
+                  <span className="font-semibold text-cyan-600">
+                    Description:
+                  </span>
                   {cls.description}
                 </p>
-                <p><span className="font-semibold text-cyan-600">Price: $</span>{cls.price}</p>
-                <p><span className="font-semibold text-cyan-600">Instructor:</span>{cls.instructorName}</p>
-                <p><span className="font-semibold text-cyan-600">Available Seat:</span>{cls.availableSeat}</p>
+                <p>
+                  <span className="font-semibold text-cyan-600">Price: $</span>
+                  {cls.price}
+                </p>
+                <p>
+                  <span className="font-semibold text-cyan-600">
+                    Instructor:
+                  </span>
+                  {cls.instructorName}
+                </p>
+                <p>
+                  <span className="font-semibold text-cyan-600">
+                    Available Seat:
+                  </span>
+                  {cls.availableSeat}
+                </p>
 
                 <div className="card-actions justify-end">
-                  <button onClick={() => handleSelect(cls)} className="btn-custom">Select Class!</button>
+                  <button
+                    onClick={() => handleSelect(cls)}
+                    className="btn-custom"
+                  >
+                    Select Class!
+                  </button>
                 </div>
               </div>
             </div>

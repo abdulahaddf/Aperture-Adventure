@@ -1,3 +1,4 @@
+import { Zoom } from "react-awesome-reveal";
 import UseUsers from "../../../../hooks/UseUsers";
 
 const PopularInstractors = () => {
@@ -9,11 +10,15 @@ const PopularInstractors = () => {
   return (
     <div className="pt-10 w-11/12 my-32 mx-auto">
       <div className="bg-cyan-600 w-11/12 h-48 absolute">
-        <h1 className="text-5xl font-bold text-center text-white">
+       <Zoom> <h1 className="text-5xl mt-3 font-bold text-center text-white">
           Most Popular Instructors
         </h1>
+        <p className="font-medium text-center mt-1 text-white">
+            Here you can see some of our Professional Photographers
+          </p>
+        </Zoom>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-11/12 mx-auto mt-28">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-fit mx-auto mt-28">
         {instructors.slice(0,6).map((ins) => (
           <div key={ins._id}>
             <div className="card w-96 glass relative">

@@ -4,19 +4,18 @@ import UseUsers from "../../../../hooks/UseUsers";
 import Swal from "sweetalert2";
 import { Zoom } from "react-awesome-reveal";
 
-
 const ManageUsers = () => {
-  const [users,loading,refetch] = UseUsers();
+  const [users, loading, refetch] = UseUsers();
 
   //make admin
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://apperture-server.vercel.app/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-       
+
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
@@ -32,12 +31,11 @@ const ManageUsers = () => {
 
   //make instructor
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+    fetch(`https://apperture-server.vercel.app/users/instructor/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
-        
         console.log(data);
         if (data.acknowledged) {
           refetch();
@@ -50,7 +48,7 @@ const ManageUsers = () => {
           });
         }
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -60,7 +58,7 @@ const ManageUsers = () => {
       </Helmet>
       <Zoom>
         <h3 className="text-5xl text-center font-semibold my-10 text-cyan-600">
-          Total Users: {users.length}  
+          Total Users: {users.length}
         </h3>
       </Zoom>
       <div className="overflow-x-auto">
