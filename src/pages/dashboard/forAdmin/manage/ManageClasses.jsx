@@ -12,7 +12,7 @@ const ManageClasses = () => {
       </Helmet>
       <Zoom>
         {" "}
-        <h1 className="text-5xl text-center font-semibold my-10 text-cyan-600">
+        <h1 className="headingCyan">
           Manage All classes:{classes.length}
         </h1>
       </Zoom>

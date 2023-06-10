@@ -4,16 +4,12 @@ import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
-  const handleLogOut = () => {
-    logOut()
-      .then()
-      .catch((error) => console.log(error));
-  };
+  
 
   return (
     <div className="flex items-center sticky top-0 z-10 w-full text-center ">
       <div className="navbar bg-gradient-to-r from-cyan-900">
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown lg:hidden">
             <label tabIndex={0} className="btn btn-sm btn-circle">
               <svg
@@ -163,7 +159,7 @@ const Nav = () => {
                   />
                 </div>
 
-                <button onClick={handleLogOut} className="btn-custom-sm mr-5">
+                <button onClick={logOut} className="btn-custom-sm mr-5">
                   Log Out
                 </button>
               </div>

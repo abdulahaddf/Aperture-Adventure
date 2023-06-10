@@ -26,7 +26,7 @@ const MyClasses = () => {
         </Helmet>
         <Zoom>
           {" "}
-          <h1 className="text-5xl text-center font-semibold my-10 text-cyan-600">
+          <h1 className="headingCyan">
              All My added classes:{classes.length}
           </h1>
         </Zoom>

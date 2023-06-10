@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { Zoom } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 
 const Slider = () => {
@@ -37,7 +38,7 @@ const Slider = () => {
         <span className="text-cyan-100 font-extrabold">Photographers</span>
       </h1>
       <div className="text-center mt-5">
-        <button className="btn-custom-sm">Get Started</button>
+        <Link to="/allClasses" className="btn-custom-sm">Get Started</Link>
       </div>
     </div>
     </Zoom>

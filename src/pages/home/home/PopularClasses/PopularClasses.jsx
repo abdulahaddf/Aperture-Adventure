@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useAdmin from "../../../../hooks/UseAdmin";
 import useInstructor from "../../../../hooks/UseInstructor";
 import { Zoom } from "react-awesome-reveal";
+import Loader from "../../../../shared/components/Loader";
 
 
 const PopularClasses = () => {
@@ -78,12 +79,15 @@ const PopularClasses = () => {
       });
     }
   };
-
+  
+if (loading){
+  return <Loader></Loader>
+}
   return (
     
     <div className="pt-10 w-11/12 mx-auto">
       <div className="bg-cyan-600 w-11/12 h-48 absolute">
-        <Zoom><h1 className="text-5xl font-bold mt-3 text-center text-white">
+        <Zoom><h1 className="heading">
           Most Popular Classes
         </h1>
         <p className="font-medium text-center mt-1 text-white">
@@ -98,7 +102,7 @@ const PopularClasses = () => {
             <div className="card w-96 glass">
               <figure>
                 <img
-                  className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
+                  className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
                   src={cls.image}
                   alt="Classes"
                 />
@@ -114,8 +118,8 @@ const PopularClasses = () => {
                   {cls.description}
                 </p>
                 <p>
-                  <span className="font-semibold text-cyan-600">Price: $</span>
-                  {cls.price}
+                  <span className="font-semibold text-cyan-600">Price: </span>
+                  ${cls.price}
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">

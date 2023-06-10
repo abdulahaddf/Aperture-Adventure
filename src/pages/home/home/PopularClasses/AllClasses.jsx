@@ -76,7 +76,7 @@ const AllClasses = () => {
         <title>Aperture Adventure | All Classes</title>
       </Helmet>
       <Zoom>
-        <h3 className="text-5xl text-center font-semibold my-10 text-cyan-600">
+        <h3 className="headingCyan">
           We have Total {classes.length} Photography Classes
         </h3>
       </Zoom>
@@ -102,8 +102,8 @@ const AllClasses = () => {
                   {cls.description}
                 </p>
                 <p>
-                  <span className="font-semibold text-cyan-600">Price: $</span>
-                  {cls.price}
+                  <span className="font-semibold text-cyan-600">Price:</span>
+                  ${cls.price}
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">

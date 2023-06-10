@@ -15,11 +15,11 @@ const AllUser = () => {
                 <title>Aperture Adventure | Welcome</title>
             </Helmet>
            <div>
-           <h1 className="text-4xl font-bold">Welcome <span className="text-cyan-500">{user?.displayName}</span></h1>
-          <h2 className="text-2xl my-4">
+           <h1 className="text-2xl md:text-4xl font-bold">Welcome <span className="text-cyan-600">{user?.displayName}</span></h1>
+          <h2 className="text-xl md:text-2xl my-4">
             You are Logged In as {isAdmin ? 'an Admin' : isInstructor ? 'an Instructor' : 'a Student'}
           </h2>
-            <p className="text-xl font-medium">Explore Your Dashboard</p>
+            <p className="text-lg md:text-xl font-medium">Explore Your Dashboard</p>
            </div>
         </div>
     );

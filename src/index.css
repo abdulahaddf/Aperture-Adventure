@@ -9,4 +9,10 @@
   .btn-custom {
     @apply btn bg-cyan-600 hover:bg-cyan-800 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 border-b-4 border-cyan-800 hover:border-cyan-600;
   }
+  .heading{
+   @apply text-3xl md:text-5xl font-bold mt-3 text-center text-white
+  }
+  .headingCyan{
+   @apply text-3xl md:text-5xl font-bold my-5 text-center text-cyan-600
+  }
 }

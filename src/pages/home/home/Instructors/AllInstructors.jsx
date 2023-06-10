@@ -14,7 +14,7 @@ const AllInstructors = () => {
         <title>Aperture Adventure | Instructors</title>
       </Helmet>
       <Zoom>
-        <h3 className="text-5xl text-center font-semibold my-10 text-cyan-600">
+        <h3 className="headingCyan">
           We have {instructors.length} Professional Instructors
         </h3>
       </Zoom>

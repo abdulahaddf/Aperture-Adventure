@@ -63,7 +63,7 @@ const AddClass = () => {
      <Helmet>
                 <title>Aperture Adventure | Add Class</title>
             </Helmet>
-    <Zoom><h1 className="text-5xl font-bold text-center text-cyan-600 my-10">Add a Photography Class As an Instructor</h1></Zoom>
+    <Zoom><h1 className="headingCyan">Add a Photography Class As an Instructor</h1></Zoom>
     <div className="container mx-auto p-4 ">
         
         <form onSubmit={handleSubmit(handleAddClass)}>

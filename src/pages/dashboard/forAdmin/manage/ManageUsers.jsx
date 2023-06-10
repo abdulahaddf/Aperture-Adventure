@@ -57,7 +57,7 @@ const ManageUsers = () => {
         <title>Aperture Adventure | Manage Users</title>
       </Helmet>
       <Zoom>
-        <h3 className="text-5xl text-center font-semibold my-10 text-cyan-600">
+        <h3 className="headingCyan">
           Total Users: {users.length}
         </h3>
       </Zoom>
