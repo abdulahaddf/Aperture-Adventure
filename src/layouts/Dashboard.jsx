@@ -63,7 +63,7 @@ console.log(isInstructor);
                 </Link>
               </div>
               <div className="flex flex-col items-center mt-6 -mx-2">
-                <Link to="/dashboard">
+                <Link to="/dashboard/welcome">
                   <img
                     className="object-cover w-20 h-20 mx-2 rounded-2xl"
                     src={user?.photoURL}
@@ -71,12 +71,12 @@ console.log(isInstructor);
                     referrerPolicy="no-referrer"
                   />
                 </Link>
-                <Link to="/dashboard">
+                <Link to="/dashboard/welcome">
                   <h4 className="mx-2 mt-2 font-medium text-white  hover:underline">
                     {user?.displayName}
                   </h4>
                 </Link>
-                <Link to="/dashboard">
+                <Link to="/dashboard/welcome">
                   <p className="mx-2 mt-1 text-sm font-medium text-white hover:underline">
                     {user?.email}
                   </p>

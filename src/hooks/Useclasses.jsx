@@ -10,7 +10,7 @@ const UseClasses = () => {
       isLoading: loading,
       refetch,
     } = useQuery(["class"], async () => {
-      const res = await axiosSecure.get("/classes");
+      const res = await axiosSecure.get("/class");
       return res.data;
     });
   

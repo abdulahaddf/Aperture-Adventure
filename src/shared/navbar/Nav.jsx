@@ -67,7 +67,7 @@ const Nav = () => {
                   className={({ isActive }) =>
                     isActive ? "text-black" : "text-white link link-hover"
                   }
-                  to="/dashboard/users"
+                  to="/dashboard/welcome"
                 >
                   {" "}
                   Dashboard
@@ -133,7 +133,7 @@ const Nav = () => {
                   className={({ isActive }) =>
                     isActive ? "text-black" : "text-white link link-hover"
                   }
-                  to="/dashboard/users"
+                  to="/dashboard/welcome"
                 >
                   {" "}
                   Dashboard

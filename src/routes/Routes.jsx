@@ -16,6 +16,9 @@ import MyClasses from "../pages/dashboard/forInstructor/Myclasses";
 import AllInstructors from "../pages/home/home/Instructors/AllInstructors";
 import AllClasses from "../pages/home/home/PopularClasses/AllClasses";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorROute";
+
 
 export const router = createBrowserRouter([
   {
@@ -51,7 +54,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
-        path: "users",
+        path: "welcome",
         element: <AllUser></AllUser>,
       },
       {
@@ -69,20 +72,20 @@ export const router = createBrowserRouter([
       // admin Routes
       {
         path: "manageClasses",
-        element:<ManageClasses></ManageClasses>,
+        element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute>
       },
       {
         path: "manageUsers",
-        element:<ManageUsers></ManageUsers>,
+        element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       },
       //instructors routes
       {
         path: "addClass",
-        element:<AddClass></AddClass>
+        element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
       },
       {
         path: "myClasses",
-        element:<MyClasses></MyClasses>
+        element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
       },
     ],
   },
