@@ -15,10 +15,12 @@ const PopularClasses = () => {
 
 
   const handleSelect =(cls) =>{
-    const {_id,className, image,  price, description, instructorName,} = cls;
+    const {_id,className, image,  price, description, instructorName, 
+      availableSeat} = cls;
     console.log(cls);
     if(user && user.email){
-      const selected = {selectId: _id, className, image,  price, description, instructorName, email: user.email}
+      const selected = {selectId: _id, className, image,  price, description, instructorName,
+        availableSeat, email: user.email}
       fetch('http://localhost:5000/select', {
           method: 'POST',
           headers: {
@@ -29,11 +31,11 @@ const PopularClasses = () => {
       .then(res => res.json())
       .then(data => {
           if(data.insertedId){
-              refetch(); // refetch cart to update the number of items in the cart
+              refetch(); 
               Swal.fire({
                   position: 'top-end',
                   icon: 'success',
-                  title: `${className} added on the cart.`,
+                  title: `${className} class is selected.`,
                   showConfirmButton: false,
                   timer: 1500
                 })
@@ -81,6 +83,7 @@ const PopularClasses = () => {
                 </p>
                 <p><span className="font-semibold text-cyan-600">Price: $</span>{cls.price}</p>
                 <p><span className="font-semibold text-cyan-600">Instructor:</span>{cls.instructorName}</p>
+                <p><span className="font-semibold text-cyan-600">Available Seat:</span>{cls.availableSeat}</p>
 
                 <div className="card-actions justify-end">
                   <button onClick={() => handleSelect(cls)} className="btn-custom">Select Class!</button>

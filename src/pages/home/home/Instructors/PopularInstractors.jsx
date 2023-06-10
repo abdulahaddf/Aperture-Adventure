@@ -1,4 +1,11 @@
+import UseUsers from "../../../../hooks/UseUsers";
+
 const PopularInstractors = () => {
+  const [users] = UseUsers();
+  const instructors = users.filter(
+    (instructor) => instructor.role == "instructor"
+  );
+
   return (
     <div className="pt-10 w-11/12 my-32 mx-auto">
       <div className="bg-cyan-600 w-11/12 h-48 absolute">
@@ -6,121 +13,24 @@ const PopularInstractors = () => {
           Most Popular Instructors
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:ml-7 w-full mx-auto">
-        <div className="card w-96 glass relative top-28">
-          <figure>
-            <img src="https://i.ibb.co/8gYHhjV/hero.png" alt="Classes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Portrait Photography</h2>
-            <p>
-              {" "}
-              Focuses on capturing the personality, expression, and mood of
-              individuals or groups.
-            </p>
-            <p>Instractor : David Jonson</p>
-            <p>Total Students : 12</p>
-
-            <div className="card-actions justify-end">
-              <button className="btn-custom">Book Now!</button>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-11/12 mx-auto mt-28">
+        {instructors.slice(0,6).map((ins) => (
+          <div key={ins._id}>
+            <div className="card w-96 glass relative">
+              <figure>
+                <img
+                  className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
+                  src={ins.photoURL}
+                  alt="Classes"
+                />
+              </figure>
+              <div className="card-body p-5">
+                <h2 className="card-title">{ins.name}</h2>
+                <p>{ins.email}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="card w-96 glass relative top-28">
-          <figure>
-            <img src="https://i.ibb.co/8gYHhjV/hero.png" alt="Classes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Portrait Photography</h2>
-            <p>
-              {" "}
-              Focuses on capturing the personality, expression, and mood of
-              individuals or groups.
-            </p>
-            <p>Instractor : David Jonson</p>
-            <p>Total Students : 1296</p>
-
-            <div className="card-actions justify-end">
-              <button className="btn-custom">Book Now!</button>
-            </div>
-          </div>
-        </div>
-        <div className="card w-96 glass relative top-28">
-          <figure>
-            <img src="https://i.ibb.co/8gYHhjV/hero.png" alt="Classes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Portrait Photography</h2>
-            <p>
-              {" "}
-              Focuses on capturing the personality, expression, and mood of
-              individuals or groups.
-            </p>
-            <p>Instractor : David Jonson</p>
-            <p>Total Students : 1296</p>
-
-            <div className="card-actions justify-end">
-              <button className="btn-custom">Book Now!</button>
-            </div>
-          </div>
-        </div>
-        <div className="card w-96 glass relative top-28">
-          <figure>
-            <img src="https://i.ibb.co/8gYHhjV/hero.png" alt="Classes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Portrait Photography</h2>
-            <p>
-              {" "}
-              Focuses on capturing the personality, expression, and mood of
-              individuals or groups.
-            </p>
-            <p>Instractor : David Jonson</p>
-            <p>Total Students : 1296</p>
-
-            <div className="card-actions justify-end">
-              <button className="btn-custom">Book Now!</button>
-            </div>
-          </div>
-        </div>
-        <div className="card w-96 glass relative top-28">
-          <figure>
-            <img src="https://i.ibb.co/8gYHhjV/hero.png" alt="Classes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Portrait Photography</h2>
-            <p>
-              {" "}
-              Focuses on capturing the personality, expression, and mood of
-              individuals or groups.
-            </p>
-            <p>Instractor : David Jonson</p>
-            <p>Total Students : 1296</p>
-
-            <div className="card-actions justify-end">
-              <button className="btn-custom">Book Now!</button>
-            </div>
-          </div>
-        </div>
-        <div className="card w-96 glass relative top-28">
-          <figure>
-            <img src="https://i.ibb.co/8gYHhjV/hero.png" alt="Classes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Portrait Photography</h2>
-            <p>
-              {" "}
-              Focuses on capturing the personality, expression, and mood of
-              individuals or groups.
-            </p>
-            <p>Instractor : David Jonson</p>
-            <p>Total Students : 1296</p>
-
-            <div className="card-actions justify-end">
-              <button className="btn-custom">Book Now!</button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

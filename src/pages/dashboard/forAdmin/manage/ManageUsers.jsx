@@ -64,7 +64,7 @@ const ManageUsers = () => {
         </h3>
       </Zoom>
       <div className="overflow-x-auto">
-        <table className="table table-zebra shadow-xl w-full">
+        <table className="table table-zebra shadow-xl w-full text-center">
           {/* head */}
           <thead className="bg-cyan-600 text-white">
             <tr>

@@ -10,24 +10,18 @@ import {
   FaGraduationCap,
   FaRegFlag,
 } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import { AiOutlineSelect } from "react-icons/ai";
 import Loader from "../shared/components/Loader";
 import useAdmin from "../hooks/UseAdmin";
 import useInstructor from "../hooks/UseInstructor";
 
 const Dashboard = () => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading,logOut } = useContext(AuthContext);
   if(loading){
     return <Loader></Loader>
   }
 
-//   let isAdmin = false;
-// if (user.role === "admin") {
-//   isAdmin = true;
-// }
-// if (user.role === "instructor") {
-//   isInstructor = true;
-// }
  
 const [isAdmin] = useAdmin();
 console.log(isAdmin);
@@ -56,7 +50,7 @@ console.log(isInstructor);
               <div className="w-full hidden md:flex py-2 justify-center items-center mx-auto">
                 <Link to="/">
                   <img
-                    className="w-48 ml-5"
+                    className="w-48 ml-5 "
                     src="https://i.ibb.co/5KY6ctJ/mylogo.png"
                     alt=""
                   />
@@ -65,7 +59,7 @@ console.log(isInstructor);
               <div className="flex flex-col items-center mt-6 -mx-2">
                 <Link to="/dashboard/welcome">
                   <img
-                    className="object-cover w-20 h-20 mx-2 rounded-2xl"
+                    className="object-cover w-20 h-20 mx-2 rounded-2xl border-2 border-white"
                     src={user?.photoURL}
                     alt="avatar"
                     referrerPolicy="no-referrer"
@@ -76,11 +70,11 @@ console.log(isInstructor);
                     {user?.displayName}
                   </h4>
                 </Link>
-                <Link to="/dashboard/welcome">
+              
                   <p className="mx-2 mt-1 text-sm font-medium text-white hover:underline">
                     {user?.email}
                   </p>
-                </Link>
+               
               </div>
             </div>
             <br />
@@ -224,6 +218,9 @@ console.log(isInstructor);
                 </>
               )}
             </div>
+
+            <hr /><hr />
+              <div className="flex items-center text-white font-semibold mt-5 btn btn-ghost btn-sm w-fit " onClick={logOut}> <FiLogOut></FiLogOut ><h1>Log Out</h1></div>
           </div>
         </div>
       </div>

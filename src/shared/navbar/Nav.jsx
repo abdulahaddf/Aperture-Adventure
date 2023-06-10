@@ -152,7 +152,7 @@ const Nav = () => {
                   className="relative mr-3 w-10 rounded-full tooltip tooltip-left "
                   data-tip={user?.displayName}
                 >
-                  <img className="rounded-full" src={user?.photoURL} />
+                  <img className="rounded-full border-2 border-cyan-600 " src={user?.photoURL} />
                 </div>
                 <button onClick={handleLogOut} className="btn-custom-sm mr-5">
                   Log Out
