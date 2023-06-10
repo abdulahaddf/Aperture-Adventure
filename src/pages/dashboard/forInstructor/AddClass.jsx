@@ -4,6 +4,8 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/UseAxiousSecure";
 import Swal from "sweetalert2";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
 
 
 const img_hosting_token = import.meta.env.VITE_IMGBB_KEY;
@@ -47,12 +49,17 @@ const AddClass = () => {
             })
         }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      toast('Something went wrong! ')
+      console.log(err)})
 
 };
 
   return (
     <>
+     <Helmet>
+                <title>Aperture Adventure | Add Class</title>
+            </Helmet>
     <Zoom><h1 className="text-5xl font-bold text-center text-cyan-600 my-10">Add a Photography Class As an Instructor</h1></Zoom>
     <div className="container mx-auto p-4 ">
         

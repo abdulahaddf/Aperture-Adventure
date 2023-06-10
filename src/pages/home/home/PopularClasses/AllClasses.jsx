@@ -27,12 +27,12 @@ const AllClasses = () => {
                 />
               </figure>
               <div className="card-body p-2">
-                <h2 className="card-title">{cls.className}</h2>
+                <h2 className="card-title text-xl font-bold">{cls.className}</h2>
                 <p>
                   {cls.description}
                 </p>
-                <p>Instractor :{cls.instructorName}</p>
-                <p>Price: {cls.price}</p>
+                <p><span className="font-semibold">Instructor:</span>{cls.instructorName}</p>
+                <p><span className="font-semibold">Price: $</span>{cls.price}</p>
 
                 <div className="card-actions justify-end">
                   <button className="btn-custom">Book Now!</button>

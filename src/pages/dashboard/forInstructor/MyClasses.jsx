@@ -22,7 +22,7 @@ const MyClasses = () => {
     return (
         <div>
         <Helmet>
-          <title>Aperture Adventure | Manage Classes</title>
+          <title>Aperture Adventure | My Classes</title>
         </Helmet>
         <Zoom>
           {" "}
