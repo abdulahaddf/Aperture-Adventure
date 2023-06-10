@@ -20,7 +20,7 @@ const AllInstructors = () => {
       </Zoom>
 
       {/* Instructors Card */}
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-11/12 mx-auto">
         {instructors.map((ins) => (
           <div key={ins._id}>
             <div className="card w-96 glass relative">

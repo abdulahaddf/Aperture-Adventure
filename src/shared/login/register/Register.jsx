@@ -208,9 +208,11 @@ const Register = () => {
               <span className="error">{errors.confirmPassword.message}</span>
             )}
            
+            <div>
             <a href="#" className="text-xs text-cyan-600 hover:underline">
               Forget Password?
             </a>
+            </div>
             <div className="mt-6">
               <button
                 type="submit"
