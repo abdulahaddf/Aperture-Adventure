@@ -19,15 +19,16 @@ import useInstructor from "../hooks/UseInstructor";
 
 const Dashboard = () => {
   const { user, loading, logOut } = useContext(AuthContext);
+  
+  const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
+  
+  const [isInstructor] = useInstructor();
+  // console.log(isInstructor);
+  
   if (loading) {
     return <Loader></Loader>;
   }
-
-  const [isAdmin] = useAdmin();
-  console.log(isAdmin);
-
-  const [isInstructor] = useInstructor();
-  console.log(isInstructor);
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -208,13 +209,18 @@ const Dashboard = () => {
               <Link to="/">Home</Link>
             </div>
 
-            {
-              !isAdmin && !isInstructor ? <> <div className="flex items-center text-white font-semibold mt-5 btn btn-ghost btn-sm w-fit">
-              {" "}
-              <BiBookContent></BiBookContent>
-              <Link to="/allClasses">All Classes</Link>
-            </div></> : <>""</>
-            }
+            {!isAdmin && !isInstructor ? (
+              <>
+                {" "}
+                <div className="flex items-center text-white font-semibold mt-5 btn btn-ghost btn-sm w-fit">
+                  {" "}
+                  <BiBookContent></BiBookContent>
+                  <Link to="/allClasses">All Classes</Link>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
 
             <div
               className="flex items-center text-white font-semibold mt-5 btn btn-ghost btn-sm w-fit "

@@ -1,14 +1,18 @@
 import { Helmet } from "react-helmet-async";
 import UseUsers from "../../../../hooks/UseUsers";
 import { Zoom } from "react-awesome-reveal";
+import Loader from "../../../../shared/components/Loader";
 
 
 const AllInstructors = () => {
-  const [users] = UseUsers();
+  const [users,loading] = UseUsers();
   const instructors = users.filter(
     (instructor) => instructor.role == "instructor"
   );
-  console.log(instructors);
+  // console.log(instructors);
+  if(loading){
+    return <Loader></Loader>
+  }
   return (
     <div>
       <Helmet>

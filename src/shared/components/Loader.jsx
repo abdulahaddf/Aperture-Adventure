@@ -11,7 +11,7 @@ const Loader = () => {
       items-center 
     '
     >
-      <RingLoader color="#36d7b7" />
+      <RingLoader color="#0891B2" />
     </div>
   )
 }

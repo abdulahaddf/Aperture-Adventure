@@ -6,10 +6,15 @@ import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import useAdmin from "../../../../hooks/UseAdmin";
+import useInstructor from "../../../../hooks/UseInstructor";
+import Loader from "../../../../shared/components/Loader";
 
 const AllClasses = () => {
   const { user } = useContext(AuthContext);
   const [classes, loading, refetch] = UseClasses();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const navigate = useNavigate();
 
   const handleSelect = (cls) => {
@@ -69,6 +74,9 @@ const AllClasses = () => {
       });
     }
   };
+  if(loading){
+    return <Loader></Loader>
+  }
 
   return (
     <div>
@@ -91,8 +99,9 @@ const AllClasses = () => {
                   alt="Classes"
                 />
               </figure>
-              <div className="card-body p-2">
-                <h2 className="card-title text-3xl font-semibold text-cyan-600">
+              <div>
+               <div className="h-64 p-2">
+               <h2 className="card-title text-3xl font-semibold text-cyan-600">
                   {cls.className}
                 </h2>
                 <p>
@@ -102,7 +111,7 @@ const AllClasses = () => {
                   {cls.description}
                 </p>
                 <p>
-                  <span className="font-semibold text-cyan-600">Price:</span>{" "}
+                  <span className="font-semibold text-cyan-600">Price: </span>{""}
                   ${cls.price}
                 </p>
                 <p>
@@ -113,20 +122,24 @@ const AllClasses = () => {
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">
-                    Available Seats:
-                  </span>{" "}
+                    Available Seats: 
+                  </span> {" "}
                   {cls.availableSeat}
                 </p>
+               </div>
 
-                <div className="card-actions justify-end">
+               
+               <div className="grid content-end ">
                   <button
                     onClick={() => handleSelect(cls)}
-                    className="btn-custom"
+                    className="btn-custom" disabled={isAdmin || isInstructor}
                   >
                     Select Class!
                   </button>
                 </div>
+
               </div>
+
             </div>
           </div>
         ))}

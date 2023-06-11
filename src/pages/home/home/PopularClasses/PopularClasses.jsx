@@ -120,8 +120,9 @@ if (loading){
                 />
               </figure>
              </LazyLoad>
-              <div className="card-body p-2">
-                <h2 className="card-title text-3xl font-semibold text-cyan-600">
+              <div>
+               <div className="h-64 p-2">
+               <h2 className="card-title text-3xl font-semibold text-cyan-600">
                   {cls.className}
                 </h2>
                 <p>
@@ -146,9 +147,10 @@ if (loading){
                   </span> {" "}
                   {cls.availableSeat}
                 </p>
+               </div>
 
                
-               <div className="card-actions justify-end">
+               <div className="grid content-end ">
                   <button
                     onClick={() => handleSelect(cls)}
                     className="btn-custom" disabled={isAdmin || isInstructor}
