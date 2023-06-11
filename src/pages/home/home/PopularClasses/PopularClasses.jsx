@@ -9,7 +9,7 @@ import useInstructor from "../../../../hooks/UseInstructor";
 import { Zoom } from "react-awesome-reveal";
 import Loader from "../../../../shared/components/Loader";
 import LazyLoad from "react-lazyload";
-
+import { motion } from "framer-motion";
 
 const PopularClasses = () => {
   const { user } = useContext(AuthContext);
@@ -97,10 +97,20 @@ if (loading){
         </Zoom>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 w-fit gap-10 mx-auto mt-28">
+      <div className="flex flex-wrap  gap-5 justify-evenly mt-28">
         {popularClasses.map((cls) => (
           <div key={cls._id}>
-            <div className="card w-96 rounded-xl glass">
+
+<motion.div
+      // whileHover={{ scale: 1, rotate: 2 }}
+      whileTap={{
+        scale: 1,
+        rotate: 5,
+        borderRadius: "100%"
+      }}
+    >
+
+            <div className="card w-96 rounded-xl glass h-full">
              <LazyLoad>
              <figure>
                 <img
@@ -117,23 +127,23 @@ if (loading){
                 <p>
                   <span className="font-semibold text-cyan-600">
                     Description:
-                  </span>
+                  </span>{" "}
                   {cls.description}
                 </p>
                 <p>
-                  <span className="font-semibold text-cyan-600">Price: </span>
+                  <span className="font-semibold text-cyan-600">Price: </span>{""}
                   ${cls.price}
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">
                     Instructor:
-                  </span>
+                  </span>{" "}
                   {cls.instructorName}
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">
-                    Available Seat:
-                  </span>
+                    Available Seats: 
+                  </span> {" "}
                   {cls.availableSeat}
                 </p>
 
@@ -149,6 +159,9 @@ if (loading){
 
               </div>
             </div>
+
+
+            </motion.div>
           </div>
         ))}
       </div>

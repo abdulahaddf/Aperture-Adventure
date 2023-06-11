@@ -80,7 +80,7 @@ const AllClasses = () => {
           We have Total {classes.length} Photography Classes
         </h3>
       </Zoom>
-      <div className="grid grid-cols-1 md:grid-cols-3 w-11/12 mx-auto mt-28">
+      <div className="flex flex-wrap  gap-5 justify-evenly mt-28">
         {classes.map((cls) => (
           <div key={cls._id}>
             <div className="card w-96 glass">
@@ -98,23 +98,23 @@ const AllClasses = () => {
                 <p>
                   <span className="font-semibold text-cyan-600">
                     Description:
-                  </span>
+                  </span>{" "}
                   {cls.description}
                 </p>
                 <p>
-                  <span className="font-semibold text-cyan-600">Price:</span>
+                  <span className="font-semibold text-cyan-600">Price:</span>{" "}
                   ${cls.price}
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">
                     Instructor:
-                  </span>
+                  </span>{" "}
                   {cls.instructorName}
                 </p>
                 <p>
                   <span className="font-semibold text-cyan-600">
-                    Available Seat:
-                  </span>
+                    Available Seats:
+                  </span>{" "}
                   {cls.availableSeat}
                 </p>
 

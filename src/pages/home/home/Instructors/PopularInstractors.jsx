@@ -12,6 +12,7 @@ if(loading){
   return <Loader></Loader>
 }
   return (
+    
     <div className="pt-10 w-11/12 my-32 mx-auto">
       <div className="bg-cyan-600 w-11/12 h-48 absolute">
        <Zoom> <h1 className="heading">
@@ -21,11 +22,15 @@ if(loading){
             Here you can see some of our Professional Photographers
           </p>
         </Zoom>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-23 w-fit mx-auto mt-28">
+        </div>
+       
+     
+      <div className="flex flex-wrap gap-5 mt-23 justify-evenly mt-28">
         {instructors.slice(0,6).map((ins) => (
           <div key={ins._id}>
-            <div className="card w-96 glass relative">
+           
+         
+       <div className="card w-96 glass relative">
               <LazyLoad>
                 <figure>
 
@@ -41,6 +46,9 @@ if(loading){
                 <p>{ins.email}</p>
               </div>
             </div>
+   
+
+
           </div>
         ))}
       </div>
