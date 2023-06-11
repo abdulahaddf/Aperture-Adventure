@@ -102,12 +102,17 @@ if (loading){
           <div key={cls._id}>
 
 <motion.div
+key={cls._id}
+initial={{ opacity: 0, y: 20 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 1 }}
       // whileHover={{ scale: 1, rotate: 2 }}
       whileTap={{
         scale: 1,
         rotate: 5,
         borderRadius: "100%"
       }}
+
     >
 
             <div className="card w-96 rounded-xl glass h-full">

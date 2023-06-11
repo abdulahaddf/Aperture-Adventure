@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import UseUsers from "../../../../hooks/UseUsers";
 import { Zoom } from "react-awesome-reveal";
 import Loader from "../../../../shared/components/Loader";
-
+import { motion } from "framer-motion";
 
 const AllInstructors = () => {
   const [users,loading] = UseUsers();
@@ -25,25 +25,30 @@ const AllInstructors = () => {
       </Zoom>
 
       {/* Instructors Card */}
-      <div className="flex flex-wrap  gap-5 justify-evenly my-10">
-        {instructors.map((ins) => (
-          <div key={ins._id}>
-            <div className="card w-96 glass relative">
-              <figure>
-                <img
-                  className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
-                  src={ins.photoURL}
-                  alt="Classes"
-                />
-              </figure>
-              <div className="card-body p-5">
-                <h2 className="card-title">{ins.name}</h2>
-                <p>{ins.email}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="flex flex-wrap gap-5 justify-evenly my-10">
+  {instructors.map((ins) => (
+    <motion.div
+      key={ins._id}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="card w-96 glass relative">
+        <figure>
+          <img
+            className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
+            src={ins.photoURL}
+            alt="Classes"
+          />
+        </figure>
+        <div className="card-body p-5">
+          <h2 className="card-title">{ins.name}</h2>
+          <p>{ins.email}</p>
+        </div>
       </div>
+    </motion.div>
+  ))}
+</div>
     </div>
   );
 };

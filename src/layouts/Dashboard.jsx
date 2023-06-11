@@ -31,8 +31,8 @@ const Dashboard = () => {
   }
   return (
     <div>
-      <div className="drawer lg:drawer-open">
-        <div className="">
+      <div className="drawer flex flex-col lg:grid lg:drawer-open">
+        <div >
           <label
             htmlFor="my-drawer-2"
             className="btn-custom-sm drawer-button mr-10 lg:hidden"
@@ -95,7 +95,7 @@ const Dashboard = () => {
             </div>
             <br />
             <hr />
-            <hr />
+            <hr  className="mb-2"/>
             {/* Links based on user */}
             <div className="text-white font-medium text-md">
               {isAdmin ? (

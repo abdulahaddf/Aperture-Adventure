@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import useAdmin from "../../../../hooks/UseAdmin";
 import useInstructor from "../../../../hooks/UseInstructor";
 import Loader from "../../../../shared/components/Loader";
+import { motion } from "framer-motion";
 
 const AllClasses = () => {
   const { user } = useContext(AuthContext);
@@ -88,9 +89,15 @@ const AllClasses = () => {
           We have Total {classes.length} Photography Classes
         </h3>
       </Zoom>
+
       <div className="flex flex-wrap  gap-5 justify-evenly mt-28">
         {classes.map((cls) => (
-          <div key={cls._id}>
+          <motion.div
+          key={cls._id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
             <div className="card w-96 glass">
               <figure>
                 <img
@@ -141,9 +148,11 @@ const AllClasses = () => {
               </div>
 
             </div>
-          </div>
+            </motion.div>
+         
         ))}
       </div>
+
     </div>
   );
 };

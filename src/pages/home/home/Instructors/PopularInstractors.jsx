@@ -2,7 +2,7 @@ import { Zoom } from "react-awesome-reveal";
 import UseUsers from "../../../../hooks/UseUsers";
 import Loader from "../../../../shared/components/Loader";
 import LazyLoad from "react-lazyload";
-
+import { motion } from "framer-motion";
 const PopularInstractors = () => {
   const [users,loading] = UseUsers();
   const instructors = users.filter(
@@ -27,8 +27,13 @@ if(loading){
      
       <div className="flex flex-wrap gap-5 mt-23 justify-evenly mt-28">
         {instructors.slice(0,6).map((ins) => (
-          <div key={ins._id}>
-           
+         
+           <motion.div
+      key={ins._id}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
          
        <div className="card w-96 glass relative">
               <LazyLoad>
@@ -46,10 +51,10 @@ if(loading){
                 <p>{ins.email}</p>
               </div>
             </div>
-   
+            </motion.div>
 
 
-          </div>
+        
         ))}
       </div>
     </div>

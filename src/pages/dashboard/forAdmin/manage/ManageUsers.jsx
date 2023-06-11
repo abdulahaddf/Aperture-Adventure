@@ -96,7 +96,7 @@ const ManageUsers = () => {
                 </td>
                 <td>
                   <button
-                    className="btn btn-custom-sm"
+                    className="btn btn-custom-sm m-2"
                     onClick={() => handleMakeAdmin(user)}
                     disabled={user.role === "admin"}
                   >
