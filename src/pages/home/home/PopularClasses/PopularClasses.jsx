@@ -8,6 +8,7 @@ import useAdmin from "../../../../hooks/UseAdmin";
 import useInstructor from "../../../../hooks/UseInstructor";
 import { Zoom } from "react-awesome-reveal";
 import Loader from "../../../../shared/components/Loader";
+import LazyLoad from "react-lazyload";
 
 
 const PopularClasses = () => {
@@ -99,14 +100,16 @@ if (loading){
       <div className="grid grid-cols-1 md:grid-cols-3 w-fit gap-10 mx-auto mt-28">
         {popularClasses.map((cls) => (
           <div key={cls._id}>
-            <div className="card w-96 glass">
-              <figure>
+            <div className="card w-96 rounded-xl glass">
+             <LazyLoad>
+             <figure>
                 <img
-                  className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
+                  className="h-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
                   src={cls.image}
                   alt="Classes"
                 />
               </figure>
+             </LazyLoad>
               <div className="card-body p-2">
                 <h2 className="card-title text-3xl font-semibold text-cyan-600">
                   {cls.className}

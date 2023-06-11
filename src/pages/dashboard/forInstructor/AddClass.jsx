@@ -49,11 +49,11 @@ const AddClass = () => {
             })
         }
         else{
-          toast('Server Problem! try again later')
+          toast.error('Server Problem! try again later')
         }
     })
     .catch(err => {
-      toast('Something went wrong! ')
+      toast.error('Something went wrong! ')
       console.log(err)})
 
 };

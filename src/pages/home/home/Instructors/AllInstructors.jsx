@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import UseUsers from "../../../../hooks/UseUsers";
 import { Zoom } from "react-awesome-reveal";
+import LazyLoad from "react-lazyload";
 
 const AllInstructors = () => {
   const [users] = UseUsers();
@@ -24,13 +25,13 @@ const AllInstructors = () => {
         {instructors.map((ins) => (
           <div key={ins._id}>
             <div className="card w-96 glass relative">
-              <figure>
+              <LazyLoad>
                 <img
                   className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
                   src={ins.photoURL}
                   alt="Classes"
                 />
-              </figure>
+              </LazyLoad>
               <div className="card-body p-5">
                 <h2 className="card-title">{ins.name}</h2>
                 <p>{ins.email}</p>

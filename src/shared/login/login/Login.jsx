@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, signInGoogle, setLoading } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -116,25 +117,38 @@ const Login = () => {
             />
             {errors.email && <span className="error">Email is required</span>}
           </div>
+
+
           <div className="mb-2">
-            <label
-              htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              {...register("password", { required: true })}
-              className={`block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40 ${
-                errors.password ? "border-red-500" : ""
-              }`}
-            />
-            {errors.password && (
-              <span className="error">Password is required</span>
-            )}
-          </div>
+      <label
+        htmlFor="password"
+        className="block text-sm font-semibold text-gray-800"
+      >
+        Password
+      </label>
+      <input
+        type={showPassword ? 'text' : 'password'}
+        id="password"
+        {...register("password", { required: true })}
+        className={`block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40 ${
+          errors.password ? "border-red-500" : ""
+        }`}
+      />
+      {errors.password && (
+        <span className="error">Password is required</span>
+      )}
+      <input
+        type="checkbox"
+        checked={showPassword}
+        onChange={(e) => setShowPassword(e.target.checked)}
+      />
+      <label>Show Password</label>
+     
+    </div>
+
+
+
+
           <a href="#" className="text-xs text-cyan-600 hover:underline">
             Forget Password?
           </a>

@@ -1,6 +1,7 @@
 import { Zoom } from "react-awesome-reveal";
 import UseUsers from "../../../../hooks/UseUsers";
 import Loader from "../../../../shared/components/Loader";
+import LazyLoad from "react-lazyload";
 
 const PopularInstractors = () => {
   const [users,loading] = UseUsers();
@@ -25,13 +26,16 @@ if(loading){
         {instructors.slice(0,6).map((ins) => (
           <div key={ins._id}>
             <div className="card w-96 glass relative">
-              <figure>
+              <LazyLoad>
+                <figure>
+
                 <img
-                  className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
+                  className="h-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
                   src={ins.photoURL}
                   alt="Classes"
                 />
-              </figure>
+                </figure>
+              </LazyLoad>
               <div className="card-body p-5">
                 <h2 className="card-title">{ins.name}</h2>
                 <p>{ins.email}</p>
