@@ -10,6 +10,7 @@ https://aperture-adventure.web.app/
 - As an instructor one can sell his classes
 - instructor can upload an class image
 - Admn can manage all the users & all the added classes by instructor
+- Dark Mode
 
 # Used Technologies
 Frontend Packages:
