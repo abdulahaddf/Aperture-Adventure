@@ -11,6 +11,8 @@ https://aperture-adventure.web.app/
 - instructor can upload an class image
 - Admn can manage all the users & all the added classes by instructor
 - Dark Mode
+- Payment System
+- Fully responsive
 
 # Used Technologies
 Frontend Packages:
