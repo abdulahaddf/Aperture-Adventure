@@ -71,7 +71,7 @@ const Nav = () => {
 {/*TODO: here fix the toggle issue */}
             <div
               tabIndex={0}
-              className={`${isMobileMenuOpen ? 'hidden' : 'block'} menu menu-compact dropdown-content px-2 mt-3  shadow bg-cyan-600 rounded-box `}
+              className={`${isMobileMenuOpen ? 'hidden' : 'block'} menu menu-compact dropdown-content pr-8 mt-2 text-xl font-semibold py-4 text-left  bg-gradient-to-b  from-cyan-900 to-cyan-600 rounded-box  `}
               >
               <div>
                 <NavLink
