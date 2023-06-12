@@ -22,7 +22,7 @@ const Review = () => {
             <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/PrJY8XX/1.jpg"
+                  src="https://i.ibb.co/DfFnKtF/woman-portrait-snowy-winter-day.jpg"
                   alt="student"
                   className="rounded-full w-24 h-24 border-4 border-cyan-700"
                 />
@@ -43,7 +43,7 @@ const Review = () => {
             <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/0YKvSz1/chef4.jpg"
+                  src="https://i.ibb.co/drqvhdn/pg2.jpg"
                   alt="student"
                   className="rounded-full w-24 h-24 border-4 border-cyan-700"
                 />
@@ -105,7 +105,7 @@ const Review = () => {
             <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/DtgLxxz/chef5.jpg"
+                  src="https://i.ibb.co/34zfKhT/young-man-DC75-ZJVABT.jpg"
                   alt="student"
                   className="rounded-full w-24 h-24 border-4 border-cyan-700"
                 />
@@ -133,7 +133,7 @@ const Review = () => {
           <div className="card mx-2 my-10 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/PrJY8XX/1.jpg"
+                  src="https://i.ibb.co/DfFnKtF/woman-portrait-snowy-winter-day.jpg"
                   alt="student"
                   className="rounded-full w-24 h-24 border-4 border-cyan-700"
                 />
@@ -154,7 +154,7 @@ const Review = () => {
             <div className="card mx-2 my-5 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/0YKvSz1/chef4.jpg"
+                  src="https://i.ibb.co/drqvhdn/pg2.jpg"
                   alt="student"
                   className="rounded-full w-24 h-24 border-4 border-cyan-700"
                 />
@@ -216,7 +216,7 @@ const Review = () => {
             <div className="card mx-2 my-5 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/DtgLxxz/chef5.jpg"
+                  src="https://i.ibb.co/34zfKhT/young-man-DC75-ZJVABT.jpg"
                   alt="student"
                   className="rounded-full w-24 h-24 border-4 border-cyan-700"
                 />

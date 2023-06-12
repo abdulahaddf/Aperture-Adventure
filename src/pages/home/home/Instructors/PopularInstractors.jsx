@@ -3,6 +3,7 @@ import UseUsers from "../../../../hooks/UseUsers";
 import Loader from "../../../../shared/components/Loader";
 import LazyLoad from "react-lazyload";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const PopularInstractors = () => {
   const [users,loading] = UseUsers();
   const instructors = users.filter(
@@ -50,6 +51,15 @@ if(loading){
                 <h2 className="card-title">{ins.name}</h2>
                 <p>{ins.email}</p>
               </div>
+              <div className="grid content-end ">
+                    <Link to="/allclasses"
+                     
+                      className="btn-custom"
+                      
+                    >
+                      See Classes
+                    </Link>
+                  </div>
             </div>
             </motion.div>
 

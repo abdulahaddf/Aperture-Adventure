@@ -3,6 +3,7 @@ import UseUsers from "../../../../hooks/UseUsers";
 import { Zoom } from "react-awesome-reveal";
 import Loader from "../../../../shared/components/Loader";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const AllInstructors = () => {
   const [users,loading] = UseUsers();
@@ -36,7 +37,7 @@ const AllInstructors = () => {
       <div className="card w-96 glass relative">
         <figure>
           <img
-            className="h-96 hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
+            className="hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
             src={ins.photoURL}
             alt="Classes"
           />
@@ -45,6 +46,15 @@ const AllInstructors = () => {
           <h2 className="card-title">{ins.name}</h2>
           <p>{ins.email}</p>
         </div>
+        <div className="grid content-end ">
+                    <Link to="/allclasses"
+                     
+                      className="btn-custom"
+                      
+                    >
+                      See Classes
+                    </Link>
+                  </div>
       </div>
     </motion.div>
   ))}
