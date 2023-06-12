@@ -9,9 +9,12 @@ const ManageUsers = () => {
 
   //make admin
   const handleMakeAdmin = (user) => {
-    fetch(`https://apperture-server.vercel.app/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://apperture-server-abdulahaddf.vercel.app/users/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -31,9 +34,12 @@ const ManageUsers = () => {
 
   //make instructor
   const handleMakeInstructor = (user) => {
-    fetch(`https://apperture-server.vercel.app/users/instructor/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://apperture-server-abdulahaddf.vercel.app/users/instructor/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -57,9 +63,7 @@ const ManageUsers = () => {
         <title>Aperture Adventure | Manage Users</title>
       </Helmet>
       <Zoom>
-        <h3 className="headingCyan">
-          Total Users: {users.length}
-        </h3>
+        <h3 className="headingCyan">Total Users: {users.length}</h3>
       </Zoom>
       <div className="overflow-x-auto">
         <table className="table table-zebra shadow-xl w-full text-center">

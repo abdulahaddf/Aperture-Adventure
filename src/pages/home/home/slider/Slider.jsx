@@ -4,6 +4,7 @@ import { Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const Slider = () => {
+  
   return (
     <div className=" relative">
       <Carousel transitionTime={2000} infiniteLoop className="text-center">

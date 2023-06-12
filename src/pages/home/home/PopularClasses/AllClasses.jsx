@@ -40,7 +40,7 @@ const AllClasses = () => {
         availableSeat,
         email: user.email,
       };
-      fetch("https://apperture-server.vercel.app/select", {
+      fetch("https://apperture-server-abdulahaddf.vercel.app/select", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -75,8 +75,8 @@ const AllClasses = () => {
       });
     }
   };
-  if(loading){
-    return <Loader></Loader>
+  if (loading) {
+    return <Loader></Loader>;
   }
 
   return (
@@ -93,11 +93,11 @@ const AllClasses = () => {
       <div className="flex flex-wrap  gap-5 justify-evenly mt-28">
         {classes.map((cls) => (
           <motion.div
-          key={cls._id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
+            key={cls._id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <div className="card w-96 glass">
               <figure>
                 <img
@@ -107,52 +107,54 @@ const AllClasses = () => {
                 />
               </figure>
               <div>
-               <div className="h-64 p-2">
-               <h2 className="card-title text-3xl font-semibold text-cyan-600">
-                  {cls.className}
-                </h2>
-                <p>
-                  <span className="font-semibold text-cyan-600">
-                    Description:
-                  </span>{" "}
-                  {cls.description}
-                </p>
-                <p>
-                  <span className="font-semibold text-cyan-600">Price: </span>{""}
-                  ${cls.price}
-                </p>
-                <p>
-                  <span className="font-semibold text-cyan-600">
-                    Instructor:
-                  </span>{" "}
-                  {cls.instructorName}
-                </p>
-                <p>
-                  <span className="font-semibold text-cyan-600">
-                    Available Seats: 
-                  </span> {" "}
-                  {cls.availableSeat}
-                </p>
-               </div>
+                <div className="h-64 p-2">
+                  <h2 className="card-title text-3xl font-semibold text-cyan-600">
+                    {cls.className}
+                  </h2>
+                  <p>
+                    <span className="font-semibold text-cyan-600">
+                      Description:
+                    </span>{" "}
+                    {cls.description}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-cyan-600">Price: </span>
+                    {""}${cls.price}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-cyan-600">
+                      Instructor:
+                    </span>{" "}
+                    {cls.instructorName}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-cyan-600">
+                      Category:
+                    </span>{" "}
+                    {cls.category}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-cyan-600">
+                      Available Seats:
+                    </span>{" "}
+                    {cls.availableSeat}
+                  </p>
+                </div>
 
-               
-               <div className="grid content-end ">
+                <div className="grid content-end ">
                   <button
                     onClick={() => handleSelect(cls)}
-                    className="btn-custom" disabled={isAdmin || isInstructor}
+                    className="btn-custom"
+                    disabled={isAdmin || isInstructor}
                   >
                     Select Class!
                   </button>
                 </div>
-
               </div>
-
             </div>
-            </motion.div>
-         
+          </motion.div>
         ))}
       </div>
-
     </div>
   );
 };

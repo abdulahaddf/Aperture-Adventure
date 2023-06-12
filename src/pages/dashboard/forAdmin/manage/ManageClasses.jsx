@@ -48,7 +48,11 @@ const ManageClasses = () => {
               
                 <td>{classItem.availableSeat}</td>
                 <td>{classItem.price}</td>
-                <td>Status LOADING</td>
+                <td>
+                  <button className="btn-custom-sm">Approve</button>
+                  <button className="btn-custom-sm m-2">Deny</button>
+                  <button className="btn-custom-sm">Send Feedback</button>
+                </td>
               </tr>
             ))}
           </tbody>

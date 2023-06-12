@@ -62,7 +62,7 @@ const Login = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        fetch("https://apperture-server.vercel.app/users", {
+        fetch("https://apperture-server-abdulahaddf.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -118,36 +118,31 @@ const Login = () => {
             {errors.email && <span className="error">Email is required</span>}
           </div>
 
-
           <div className="mb-2">
-      <label
-        htmlFor="password"
-        className="block text-sm font-semibold text-gray-800"
-      >
-        Password
-      </label>
-      <input
-        type={showPassword ? 'text' : 'password'}
-        id="password"
-        {...register("password", { required: true })}
-        className={`block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40 ${
-          errors.password ? "border-red-500" : ""
-        }`}
-      />
-      {errors.password && (
-        <span className="error">Password is required</span>
-      )}
-      <input
-        type="checkbox"
-        checked={showPassword}
-        onChange={(e) => setShowPassword(e.target.checked)}
-      />
-      <label>Show Password</label>
-     
-    </div>
-
-
-
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-800"
+            >
+              Password
+            </label>
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              {...register("password", { required: true })}
+              className={`block w-full px-4 py-2 mt-2 text-cyan-700 bg-white border rounded-md focus:border-cyan-400 focus:ring-cyan-300 focus:outline-none focus:ring focus:ring-opacity-40 ${
+                errors.password ? "border-red-500" : ""
+              }`}
+            />
+            {errors.password && (
+              <span className="error">Password is required</span>
+            )}
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={(e) => setShowPassword(e.target.checked)}
+            />
+            <label>Show Password</label>
+          </div>
 
           <a href="#" className="text-xs text-cyan-600 hover:underline">
             Forget Password?
@@ -165,7 +160,7 @@ const Login = () => {
           <button
             onClick={handleGoogleSignIn}
             type="button"
-            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
+            className="flex items-center justify-center w-full p-2 border border-cyan-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-cyan-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

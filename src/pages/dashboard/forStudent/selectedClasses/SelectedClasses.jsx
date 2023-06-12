@@ -7,10 +7,13 @@ import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
   const { user } = useContext(AuthContext);
+
   const [classes, setClasses] = useState([]);
-  console.log(classes);
+  // console.log(classes);
   useEffect(() => {
-    fetch(`https://apperture-server.vercel.app/select?email=${user.email}`)
+    fetch(
+      `https://apperture-server-abdulahaddf.vercel.app/select?email=${user.email}`
+    )
       .then((response) => response.json())
       .then((data) => setClasses(data));
   }, [user, classes]);
@@ -26,9 +29,12 @@ const SelectedClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://apperture-server.vercel.app/select/${cls._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://apperture-server-abdulahaddf.vercel.app/select/${cls._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -85,7 +91,7 @@ const SelectedClasses = () => {
                         <td>{classItem.instructorName}</td>
 
                         <td>{classItem.availableSeat}</td>
-                        <td>{classItem.price}</td>
+                        <td>${classItem.price}</td>
                         <td>
                           <button
                             onClick={() => handleDelete(classItem)}
@@ -93,7 +99,13 @@ const SelectedClasses = () => {
                           >
                             delete
                           </button>
-                          <button className="btn-custom-sm w-24">Pay</button>
+                          <Link
+                            to="/dashboard/pay"
+                            state={{ price: classItem.price, cls: classItem }}
+                            className="btn-custom-sm w-24"
+                          >
+                            Pay
+                          </Link>
                         </td>
                       </tr>
                     ))}
@@ -106,9 +118,7 @@ const SelectedClasses = () => {
           <>
             <Zoom>
               {" "}
-              <h1 className="text-5xl text-center font-semibold my-10 text-cyan-600">
-                You Have Not Select Classes yet
-              </h1>
+              <h1 className="headingCyan">You Have Not Select Classes yet</h1>
               <div className="text-center">
                 <h3 className="text-3xl  font-semibold my-10">
                   Please Select Your Desired Class

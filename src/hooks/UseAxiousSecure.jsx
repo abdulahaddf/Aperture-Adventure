@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: "https://apperture-server.vercel.app",
+  baseURL: "https://apperture-server-abdulahaddf.vercel.app",
 });
 
 const useAxiosSecure = () => {

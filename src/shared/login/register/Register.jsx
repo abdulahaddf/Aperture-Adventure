@@ -32,7 +32,7 @@ const Register = () => {
             email: data.email,
             photoURL: data.url,
           };
-          fetch("https://apperture-server.vercel.app/users", {
+          fetch("https://apperture-server-abdulahaddf.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -71,7 +71,7 @@ const Register = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        fetch("https://apperture-server.vercel.app/users", {
+        fetch("https://apperture-server-abdulahaddf.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -224,7 +224,7 @@ const Register = () => {
             <button
               onClick={handleGoogleSignIn}
               type="button"
-              className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
+              className="flex items-center justify-center w-full p-2 border border-cyan-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-cyan-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

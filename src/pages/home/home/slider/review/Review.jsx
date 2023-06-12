@@ -15,7 +15,7 @@ const Review = () => {
           </p>
         </Zoom>
       </div>
-
+                    {/* for large screen */}
       <div className="hidden sm:block pt-20">
         <Marquee speed={100}>
           <div className="flex gap-10">
@@ -130,7 +130,7 @@ const Review = () => {
           className="flex flex-col mx-auto gap-10 text-cyan-700"
           data-aos="zoom-in-down"
         >
-          <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
+          <div className="card mx-2 my-10 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
                   src="https://i.ibb.co/PrJY8XX/1.jpg"
@@ -151,7 +151,7 @@ const Review = () => {
                 </p>
               </div>
             </div>
-            <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
+            <div className="card mx-2 my-5 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
                   src="https://i.ibb.co/0YKvSz1/chef4.jpg"
@@ -172,7 +172,7 @@ const Review = () => {
                 </p>
               </div>
             </div>
-            <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
+            <div className="card  mx-2 my-5 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
                   src="https://i.ibb.co/mNDKM1W/4.jpg"
@@ -192,7 +192,7 @@ const Review = () => {
                 </p>
               </div>
             </div>
-            <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
+            <div className="card mx-2 my-5 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
                   src="https://i.ibb.co/5sXr2hc/3.jpg"
@@ -213,7 +213,7 @@ const Review = () => {
                 </p>
               </div>
             </div>
-            <div className="card w-96 mx-2 my-10 bg-base-100 shadow-xl">
+            <div className="card mx-2 my-5 bg-base-100 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
                   src="https://i.ibb.co/DtgLxxz/chef5.jpg"

@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
       // passing token
       if (currentUser) {
         axios
-          .post("https://apperture-server.vercel.app/jwt", {
+          .post("https://apperture-server-abdulahaddf.vercel.app/jwt", {
             email: currentUser.email,
           })
           .then((data) => {

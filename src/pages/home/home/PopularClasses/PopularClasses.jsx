@@ -16,7 +16,7 @@ const PopularClasses = () => {
   const [classes, loading, refetch] = UseClasses();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
- 
+
   const navigate = useNavigate();
 
   const popularClasses = classes.filter(
@@ -45,7 +45,7 @@ const PopularClasses = () => {
         availableSeat,
         email: user.email,
       };
-      fetch("https://apperture-server.vercel.app/select", {
+      fetch("https://apperture-server-abdulahaddf.vercel.app/select", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,99 +80,92 @@ const PopularClasses = () => {
       });
     }
   };
-  
-if (loading){
-  return <Loader></Loader>
-}
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
-    
     <div className="pt-10 w-11/12 mx-auto">
       <div className="bg-cyan-600 w-11/12 h-48 absolute">
-        <Zoom><h1 className="heading">
-          Most Popular Classes
-        </h1>
-        <p className="font-medium text-center mt-1 text-white">
+        <Zoom>
+          <h1 className="heading">Most Popular Classes</h1>
+          <p className="font-medium text-center mt-1 text-white">
             Here you can see our best selling classes
           </p>
         </Zoom>
       </div>
-      
+
       <div className="flex flex-wrap  gap-5 justify-evenly mt-28">
-        {popularClasses.map((cls) => (
+        {popularClasses.slice(0, 6).map((cls) => (
           <div key={cls._id}>
+            <motion.div
+              key={cls._id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              // whileHover={{ scale: 1, rotate: 2 }}
+              whileTap={{
+                scale: 1,
+                rotate: 5,
+                borderRadius: "100%",
+              }}
+            >
+              <div className="card w-96 rounded-xl glass h-full">
+                <LazyLoad>
+                  <figure>
+                    <img
+                      className="h-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
+                      src={cls.image}
+                      alt="Classes"
+                    />
+                  </figure>
+                </LazyLoad>
+                <div>
+                  <div className="h-64 p-2">
+                    <h2 className="card-title text-3xl font-semibold text-cyan-600">
+                      {cls.className}
+                    </h2>
+                    <p>
+                      <span className="font-semibold text-cyan-600">
+                        Description:
+                      </span>{" "}
+                      {cls.description}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-cyan-600">
+                        Price:{" "}
+                      </span>
+                      {""}${cls.price}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-cyan-600">
+                        Instructor:
+                      </span>{" "}
+                      {cls.instructorName}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-cyan-600">
+                        Available Seats:
+                      </span>{" "}
+                      {cls.availableSeat}
+                    </p>
+                  </div>
 
-<motion.div
-key={cls._id}
-initial={{ opacity: 0, y: 20 }}
-animate={{ opacity: 1, y: 0 }}
-transition={{ duration: 1 }}
-      // whileHover={{ scale: 1, rotate: 2 }}
-      whileTap={{
-        scale: 1,
-        rotate: 5,
-        borderRadius: "100%"
-      }}
-
-    >
-
-            <div className="card w-96 rounded-xl glass h-full">
-             <LazyLoad>
-             <figure>
-                <img
-                  className="h-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
-                  src={cls.image}
-                  alt="Classes"
-                />
-              </figure>
-             </LazyLoad>
-              <div>
-               <div className="h-64 p-2">
-               <h2 className="card-title text-3xl font-semibold text-cyan-600">
-                  {cls.className}
-                </h2>
-                <p>
-                  <span className="font-semibold text-cyan-600">
-                    Description:
-                  </span>{" "}
-                  {cls.description}
-                </p>
-                <p>
-                  <span className="font-semibold text-cyan-600">Price: </span>{""}
-                  ${cls.price}
-                </p>
-                <p>
-                  <span className="font-semibold text-cyan-600">
-                    Instructor:
-                  </span>{" "}
-                  {cls.instructorName}
-                </p>
-                <p>
-                  <span className="font-semibold text-cyan-600">
-                    Available Seats: 
-                  </span> {" "}
-                  {cls.availableSeat}
-                </p>
-               </div>
-
-               
-               <div className="grid content-end ">
-                  <button
-                    onClick={() => handleSelect(cls)}
-                    className="btn-custom" disabled={isAdmin || isInstructor}
-                  >
-                    Select Class!
-                  </button>
+                  <div className="grid content-end ">
+                    <button
+                      onClick={() => handleSelect(cls)}
+                      className="btn-custom"
+                      disabled={isAdmin || isInstructor}
+                    >
+                      Select Class!
+                    </button>
+                  </div>
                 </div>
-
               </div>
-            </div>
-
-
             </motion.div>
           </div>
         ))}
       </div>
-    
     </div>
   );
 };

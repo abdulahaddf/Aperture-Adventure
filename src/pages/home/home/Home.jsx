@@ -3,17 +3,14 @@ import PopularInstractors from "./Instructors/PopularInstractors";
 import PopularClasses from "./PopularClasses/PopularClasses";
 import Slider from "./slider/Slider";
 import Review from "./slider/review/Review";
-import { useContext } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
-import Loader from "../../../shared/components/Loader";
+
+
+
 
 
 
 const Home = () => {
-    const {loading} = useContext(AuthContext);
-    if (loading) {
-        return <Loader></Loader>
-    }
+    
     return (
         <div>
              <Helmet>
