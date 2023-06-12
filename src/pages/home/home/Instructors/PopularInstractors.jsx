@@ -25,7 +25,7 @@ if(loading){
         </div>
        
      
-      <div className="flex flex-wrap gap-5 mt-23 justify-evenly mt-28">
+      <div className="flex flex-wrap gap-5 justify-evenly mt-32">
         {instructors.slice(0,6).map((ins) => (
          
            <motion.div
@@ -40,7 +40,7 @@ if(loading){
                 <figure>
 
                 <img
-                  className="h-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
+                  className="w-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all"
                   src={ins.photoURL}
                   alt="Classes"
                 />

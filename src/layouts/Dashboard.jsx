@@ -201,7 +201,7 @@ const Dashboard = () => {
               )}
             </div>
 
-            <hr />
+            <hr className="mt-4"/>
             <hr />
             <div className="flex items-center text-white font-semibold mt-5 btn btn-ghost btn-sm w-fit">
               {" "}

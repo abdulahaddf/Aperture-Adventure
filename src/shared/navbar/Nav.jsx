@@ -41,7 +41,7 @@ const Nav = () => {
       <div className="navbar bg-gradient-to-r from-cyan-900">
         <div className="navbar-start ">
           
-          <div className="dropdown lg:hidden">
+          <div className="dropdown lg:hidden ">
             <label className="btn btn-circle swap swap-rotate" onClick={toggleMobileMenu}>
               {/* this hidden checkbox controls the state */}
               <input type="checkbox" />
@@ -71,7 +71,7 @@ const Nav = () => {
 {/*TODO: here fix the toggle issue */}
             <div
               tabIndex={0}
-              className={`${isMobileMenuOpen ? 'hidden' : 'block'} menu menu-compact dropdown-content mt-3 p-2 shadow bg-cyan-600 rounded-box w-52`}
+              className={`${isMobileMenuOpen ? 'hidden' : 'block'} menu menu-compact dropdown-content px-2 mt-3  shadow bg-cyan-600 rounded-box `}
               >
               <div>
                 <NavLink

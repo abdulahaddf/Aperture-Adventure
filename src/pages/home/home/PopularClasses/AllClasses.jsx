@@ -65,7 +65,7 @@ const AllClasses = () => {
         title: "Please login to select the Class",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#0891B2",
         cancelButtonColor: "#d33",
         confirmButtonText: "Login now!",
       }).then((result) => {

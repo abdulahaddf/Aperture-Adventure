@@ -70,7 +70,7 @@ const PopularClasses = () => {
         title: "Please login to select the Class",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#0891B2",
         cancelButtonColor: "#d33",
         confirmButtonText: "Login now!",
       }).then((result) => {
@@ -110,11 +110,11 @@ const PopularClasses = () => {
                 borderRadius: "100%",
               }}
             >
-              <div className="card w-96 rounded-xl glass h-full">
+              <div className="card w-96 h-1/2 rounded-xl glass">
                 <LazyLoad>
                   <figure>
                     <img
-                      className="h-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
+                      className="w-96 rounded-xl hover:scale-125 hover:-translate-y-1 hover:duration-400 transition-all "
                       src={cls.image}
                       alt="Classes"
                     />
