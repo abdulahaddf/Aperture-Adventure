@@ -10,6 +10,7 @@ import useAdmin from "../../../../hooks/UseAdmin";
 import useInstructor from "../../../../hooks/UseInstructor";
 import Loader from "../../../../shared/components/Loader";
 import { motion } from "framer-motion";
+import CountUp from 'react-countup';
 
 const AllClasses = () => {
   const { user } = useContext(AuthContext);
@@ -86,8 +87,9 @@ const AllClasses = () => {
       </Helmet>
       <Zoom>
         <h3 className="headingCyan">
-          We have Total {classes.length} Photography Classes
+          We have Total   <CountUp delay={1} end={classes.length} /> Photography Classes
         </h3>
+      
       </Zoom>
 
       <div className="flex flex-wrap  gap-5 justify-evenly mt-28">
