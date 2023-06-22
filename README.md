@@ -4,6 +4,9 @@ b712-summer-camp-client-side-abdulahaddf created by GitHub Classroom
 Aperture Adventure
 # Live link
 https://aperture-adventure.web.app/
+## For admin access
+user mail: jhankar@gmail.com
+pass : Test1234!
 # Features
 - Login & resigter system
 - One can purchache a photography class as a student
