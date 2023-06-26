@@ -26,28 +26,19 @@ const Nav = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
-// Fix the toggle Issue
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-// console.log(isMobileMenuOpen);
   
 
   return (
     <div className="flex items-center sticky top-0 z-10 w-full shadow-md text-center ">
-      <div className="navbar bg-gradient-to-r from-cyan-900">
+      <div className="navbar bg-gradient-to-r from-cyan-700">
         <div className="navbar-start ">
-          
-          <div className="dropdown lg:hidden ">
-            <label className="btn btn-circle swap swap-rotate" onClick={toggleMobileMenu}>
-              {/* this hidden checkbox controls the state */}
-              <input type="checkbox" />
 
-              {/* hamburger icon */}
-              <svg
+<div className="drawer lg:hidden">
+  <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content">
+    {/* Page content here */}
+    <label htmlFor="my-drawer" className="btn btn-circle drawer-button -ml-9"> <svg
                 className="swap-off fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -55,28 +46,20 @@ const Nav = () => {
                 viewBox="0 0 512 512"
               >
                 <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-              </svg>
-
-              {/* close icon */}
-              <svg
-                className="swap-on fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 512 512"
+              </svg></label>
+  </div> 
+  <div className="drawer-side">
+    <label htmlFor="my-drawer" className="drawer-overlay"></label>
+    <ul className="menu p-4 h-1/3 w-1/2 bg-gradient-to-b  from-cyan-700   ">
+      {/* Sidebar content here */}
+      <div
+          
+              className="  text-white mt-2 text-xl font-semibold py-4 text-left  " 
               >
-                <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
-              </svg>
-            </label>
-{/*TODO: here fix the toggle issue */}
-            <div
-              tabIndex={0}
-              className={`${isMobileMenuOpen ? 'hidden' : 'block'} menu menu-compact dropdown-content pr-8 mt-2 text-xl font-semibold py-4 text-left  bg-gradient-to-b  from-cyan-900 to-cyan-600 rounded-box  `}
-              >
-              <div>
+              <div> 
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-black" : "text-white link link-hover"
+                    isActive ? " underline " : "text-white link link-hover"
                   }
                   to="/"
                 >
@@ -86,7 +69,7 @@ const Nav = () => {
               <div>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-black" : "text-white link link-hover"
+                    isActive ? "underline" : "text-white link link-hover"
                   }
                   to="/instructors"
                 >
@@ -97,7 +80,7 @@ const Nav = () => {
               <div>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-black" : "text-white link link-hover"
+                    isActive ? "underline" : "text-white link link-hover"
                   }
                   to="/allClasses"
                 >
@@ -109,7 +92,7 @@ const Nav = () => {
                 {user ? (
                   <NavLink
                     className={({ isActive }) =>
-                      isActive ? "text-black" : "text-white link link-hover"
+                      isActive ? "underline" : "text-white link link-hover"
                     }
                     to="/dashboard/welcome"
                   >
@@ -121,14 +104,16 @@ const Nav = () => {
                 )}
               </div>
             </div>
-          </div>
-
+      
+    </ul>
+  </div>
+</div>
 
 {/* large screen lav */}
           <div>
             <Link to="/">
               <img
-                className="w-48 ml-2 md:ml-5"
+                className="w-72 md:w-48  md:ml-5"
                 src="https://i.ibb.co/5KY6ctJ/mylogo.png"
                 alt=""
               />
