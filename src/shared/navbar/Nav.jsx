@@ -3,6 +3,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import Headroom from "react-headroom";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -30,7 +31,15 @@ const Nav = () => {
   
 
   return (
-    <div className="flex items-center sticky top-0 z-10 w-full shadow-md text-center ">
+    <Headroom style={{
+      webkitTransition: 'all .5s ease-in-out',
+      mozTransition: 'all .5s ease-in-out',
+      oTransition: 'all .5s ease-in-out',
+      transition: 'all .5s ease-in-out'
+    }}>
+
+  
+    <div className="flex items-center w-full shadow-md text-center ">
       <div className="navbar bg-gradient-to-r from-cyan-700">
         <div className="navbar-start ">
 
@@ -235,6 +244,7 @@ const Nav = () => {
         </div>
       </div>
     </div>
+    </Headroom>
   );
 };
 
