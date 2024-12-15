@@ -3,6 +3,7 @@ import PopularInstractors from "./Instructors/PopularInstractors";
 import PopularClasses from "./PopularClasses/PopularClasses";
 import Slider from "./slider/Slider";
 import Review from "./slider/review/Review";
+import Map from "../Map/Map";
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <PopularInstractors></PopularInstractors>
             <Review></Review>
+            {/* <Map/> */}
         </div>
     );
 };

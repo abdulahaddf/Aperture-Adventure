@@ -61,7 +61,6 @@ const AllClasses = () => {
             });
           }
         });
-    } else {
       Swal.fire({
         title: "Please login to select the Class",
         icon: "warning",

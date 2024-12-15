@@ -9,10 +9,18 @@
   .btn-custom {
     @apply btn bg-cyan-600 hover:bg-cyan-800 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 border-b-4 border-cyan-800 hover:border-cyan-600;
   }
-  .heading{
-   @apply text-3xl md:text-5xl font-bold mt-3 text-center text-white border p-2 shadow-md border-b-2 border-cyan-600
+  .heading {
+    @apply text-3xl md:text-5xl font-bold mt-3 text-center text-white border p-2 shadow-md border-b-2 border-cyan-600;
   }
-  .headingCyan{
-   @apply text-3xl md:text-5xl font-bold my-5 text-center text-cyan-600 border p-5 shadow-md border-b-2 border-cyan-600
+  .headingCyan {
+    @apply text-3xl md:text-5xl font-bold my-5 text-center text-cyan-600 border p-5 shadow-md border-b-2 border-cyan-600;
   }
 }
+
+/* .btn-primary{
+  @apply btn w-24 text-black  bg-white hover:text-white border-red normal-case hover:bg-red  px-2 py-1 rounded-lg border-b-4 hover:scale-105 duration-300 hover:shadow-rose-400 shadow-lg;
+}
+.btn-custom{
+  @apply btn btn-sm text-black  bg-white hover:text-white border-red  hover:border-b-white
+   hover:bg-red  rounded-lg px-5 border-b-4 hover:scale-105 duration-300;
+} */
