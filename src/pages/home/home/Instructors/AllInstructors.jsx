@@ -18,7 +18,7 @@ const AllInstructors = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Instructors</title>
+        <title>Your Academy | Instructors</title>
       </Helmet>
       <Zoom>
         <h3 className="headingCyan">

@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../provider/AuthProvider";
-import logo from "../../../assets/lgo.svg";
-import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import logo from "../../../assets/lgo.svg";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
   const { signIn, signInGoogle, setLoading } = useContext(AuthContext);
@@ -93,7 +93,7 @@ const Login = () => {
   return (
     <div className=" md:flex justify-center my-10 ">
       <Helmet>
-        <title>Aperture Adventure | Login</title>
+        <title>Your Academy | Login</title>
       </Helmet>
       <div className="w-full p-6 h-3/4 bg-white rounded-md shadow-2xl lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-cyan-700 uppercase">

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
-import { Helmet } from "react-helmet-async";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const MyClasses = () => {
   const { user } = useContext(AuthContext);
@@ -18,7 +18,7 @@ const MyClasses = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | My Classes</title>
+        <title>Your Academy | My Classes</title>
       </Helmet>
 
       {classes.length > 0 ? (

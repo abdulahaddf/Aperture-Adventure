@@ -20,7 +20,7 @@ const AllUser = () => {
 
 
              <Helmet>
-                <title>Aperture Adventure | Welcome</title>
+                <title>Your Academy | Welcome</title>
             </Helmet>
            <div className="bg-white p-10 bg-opacity-30 rounded-3xl shadow-md">
            <h1 className="text-2xl md:text-4xl font-bold">Welcome <span className="text-cyan-600">{user?.displayName}</span></h1>

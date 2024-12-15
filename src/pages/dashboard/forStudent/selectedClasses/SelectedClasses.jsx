@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../../../provider/AuthProvider";
 import { Zoom } from "react-awesome-reveal";
-import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../../provider/AuthProvider";
 
 const SelectedClasses = () => {
   const { user } = useContext(AuthContext);
@@ -48,7 +48,7 @@ const SelectedClasses = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Selected Classes</title>
+        <title>Your Academy | Selected Classes</title>
       </Helmet>
       <>
         {classes.length > 0 ? (

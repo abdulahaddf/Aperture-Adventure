@@ -82,7 +82,7 @@ const AllClasses = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | All Classes</title>
+        <title>Your Academy | All Classes</title>
       </Helmet>
       <Zoom>
         <h3 className="headingCyan">

@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div>
              <Helmet>
-                <title>Aperture Adventure | Home</title>
+                <title>Your Academy | Home</title>
             </Helmet>
             <Slider></Slider>
             <PopularClasses></PopularClasses>

@@ -119,13 +119,18 @@ const Nav = () => {
 </div>
 
 {/* large screen lav */}
-          <div>
+          {/* <div>
             <Link to="/">
               <img
                 className="w-72 md:w-48  md:ml-5"
                 src="https://i.ibb.co/5KY6ctJ/mylogo.png"
                 alt=""
               />
+            </Link>
+          </div> */}
+          <div>
+            <Link to="/" className="text-4xl text-white font-extrabold">
+             Your Academy
             </Link>
           </div>
         </div>

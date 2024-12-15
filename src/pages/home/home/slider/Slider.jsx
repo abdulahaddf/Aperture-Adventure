@@ -15,7 +15,8 @@ const imageLinks = [
 const Slider = () => {
   return (
     <div className="relative">
-      <Carousel transitionTime={2000} infiniteLoop className="text-center">
+      <img className="object-cover" src="src\assets\s4-min.jpg" alt="Slider" />
+      {/* <Carousel transitionTime={2000} infiniteLoop className="text-center">
         {imageLinks.map((link, index) => (
           <div key={index}>
             <Suspense>
@@ -29,7 +30,7 @@ const Slider = () => {
               </Suspense>
           </div>
         ))}
-      </Carousel>
+      </Carousel> */}
       <div className="absolute top-1/3 md:top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-3/4 mx-auto p-2 mr-5 md:mr-48 mt-2 md:mt-0 md:p-5 bg-black bg-opacity-50">
         <Zoom>
           <div>

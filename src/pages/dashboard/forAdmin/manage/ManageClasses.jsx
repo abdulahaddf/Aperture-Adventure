@@ -1,6 +1,6 @@
 import { Zoom } from "react-awesome-reveal";
-import UseClasses from "../../../../hooks/Useclasses";
 import { Helmet } from "react-helmet-async";
+import UseClasses from "../../../../hooks/Useclasses";
 
 const ManageClasses = () => {
   const [classes] = UseClasses();
@@ -8,13 +8,11 @@ const ManageClasses = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Manage Classes</title>
+        <title>Your Academy | Manage Classes</title>
       </Helmet>
       <Zoom>
         {" "}
-        <h1 className="headingCyan">
-          Manage All classes:{classes.length}
-        </h1>
+        <h1 className="headingCyan">Manage All classes:{classes.length}</h1>
       </Zoom>
       <div className="overflow-x-auto">
         <table className="table table-zebra shadow-xl w-full text-center">
@@ -45,7 +43,7 @@ const ManageClasses = () => {
                 <td>{classItem.className}</td>
                 <td>{classItem.instructorName}</td>
                 <td>{classItem.instructorEmail}</td>
-              
+
                 <td>{classItem.availableSeat}</td>
                 <td>{classItem.price}</td>
                 <td>

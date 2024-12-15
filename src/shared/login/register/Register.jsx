@@ -1,9 +1,9 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Register = () => {
   const { createUser, signInGoogle, profileUpdate, setLoading } =
@@ -101,7 +101,7 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Register</title>
+        <title>Your Academy | Register</title>
       </Helmet>
       <div className="relative flex flex-col justify-center my-4 overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">

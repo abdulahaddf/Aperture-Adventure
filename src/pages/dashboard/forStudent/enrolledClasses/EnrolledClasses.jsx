@@ -1,7 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
-import { useContext } from "react";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -23,7 +21,7 @@ const EnrolledClasses = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Enrolled Classes</title>
+        <title>Your Academy | Enrolled Classes</title>
       </Helmet>
 
       <>

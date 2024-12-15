@@ -67,7 +67,7 @@ const Footer = () => {
       <div>
         {" "}
         <p className="text-center md:text-left">
-          All rights reserved by Aperture Adventure @{time}
+          All rights reserved by Your Academy @{time}
         </p>
       </div>
     </div>

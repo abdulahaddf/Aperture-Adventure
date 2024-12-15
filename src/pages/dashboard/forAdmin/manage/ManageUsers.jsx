@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { Helmet } from "react-helmet-async";
-import UseUsers from "../../../../hooks/UseUsers";
-import Swal from "sweetalert2";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import UseUsers from "../../../../hooks/UseUsers";
 
 const ManageUsers = () => {
   const [users, loading, refetch] = UseUsers();
@@ -60,7 +60,7 @@ const ManageUsers = () => {
   return (
     <div className="w-full">
       <Helmet>
-        <title>Aperture Adventure | Manage Users</title>
+        <title>Your Academy | Manage Users</title>
       </Helmet>
       <Zoom>
         <h3 className="headingCyan">Total Users: {users.length}</h3>

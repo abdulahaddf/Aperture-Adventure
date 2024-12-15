@@ -1,11 +1,9 @@
-import { useContext } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../provider/AuthProvider";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import { Helmet } from "react-helmet-async";
 
 const PaymentsHistory = () => {
   const { user } = useContext(AuthContext);
@@ -21,7 +19,7 @@ const PaymentsHistory = () => {
   return (
     <div>
       <Helmet>
-        <title>Aperture Adventure | Payment History</title>
+        <title>Your Academy | Payment History</title>
       </Helmet>
 
       <>
